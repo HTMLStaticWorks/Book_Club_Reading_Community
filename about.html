@@ -1,0 +1,597 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>About Book Haven</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#002e0c",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#7d553f",
+                        "secondary-fixed-dim": "#ffb86b",
+                        "background": "#fff8f5",
+                        "tertiary": "#001604",
+                        "surface-dim": "#f4d4c1",
+                        "surface-container-high": "#ffe3d2",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fff8f5",
+                        "surface-container-highest": "#fcdcc9",
+                        "surface-container": "#ffeade",
+                        "on-tertiary-fixed-variant": "#24502a",
+                        "inverse-surface": "#3f2c1f",
+                        "on-primary-fixed-variant": "#623e2a",
+                        "secondary-container": "#ffa535",
+                        "on-secondary-fixed": "#2c1700",
+                        "on-background": "#28180c",
+                        "on-error-container": "#93000a",
+                        "secondary": "#895100",
+                        "on-secondary-fixed-variant": "#683d00",
+                        "on-primary-fixed": "#2f1404",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#6b3f00",
+                        "secondary-fixed": "#ffdcbc",
+                        "outline-variant": "#d5c3bb",
+                        "on-primary-container": "#b2846b",
+                        "inverse-on-surface": "#ffede4",
+                        "surface-bright": "#fff8f5",
+                        "primary-container": "#3d1f0d",
+                        "on-surface": "#28180c",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#51443e",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#6a996b",
+                        "primary-fixed-dim": "#efbba0",
+                        "primary-fixed": "#ffdbca",
+                        "primary": "#240b00",
+                        "surface-container-low": "#fff1ea",
+                        "inverse-primary": "#efbba0",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#a1d3a1",
+                        "on-tertiary-fixed": "#002107",
+                        "tertiary-fixed": "#bdefbb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#fcdcc9",
+                        "outline": "#83746d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "margin-safe": "32px",
+                        "stack-sm": "8px",
+                        "section-gap-mobile": "64px",
+                        "section-gap": "96px",
+                        "gutter": "24px",
+                        "stack-lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "label-sm": ["Literata"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-md": ["Literata"],
+                        "display": ["Playfair Display"],
+                        "body-lg": ["Literata"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-sm": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        .premium-shadow {
+            box-shadow: 0 4px 12px rgba(61, 31, 13, 0.05);
+        }
+        
+        html.dark .premium-shadow {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<script>
+        // Check local storage or system preference on load
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+        } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
+        }
+    </script>
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body class="bg-background dark:bg-[#1a0f08] text-on-background dark:text-[#f4e6d3] min-h-screen flex flex-col transition-colors duration-300">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full h-[72px] z-50 bg-background/80 dark:bg-[#1a0f08]/80 backdrop-blur-md border-b border-outline-variant/10 shadow-sm dark:shadow-none transition-all">
+<div class="flex justify-between items-center h-full px-margin-safe max-w-[1200px] mx-auto">
+<a class="font-headline-md text-headline-md font-bold text-on-background dark:text-[#f4e6d3]" href="index.html">Book Haven</a>
+<nav class="bg-background/80 dark:bg-[#1a0f08]/90 backdrop-blur-md border-b border-outline-variant/10 dark:border-outline-variant/5 shadow-sm dark:shadow-none fixed top-0 w-full h-[72px] z-50">
+<div class="flex justify-between items-center h-full px-margin-safe max-w-[1200px] mx-auto">
+<a class="font-headline-md text-headline-md text-on-background dark:text-primary-fixed dark:-fixed-dim " href="index.html">Book Haven</a>
+<div class="hidden lg:flex space-x-gutter">
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim dark:-fixed-dim font-label-sm text-label-sm hover:text-on-surface-variant dark:hover:text-secondary-fixed-dim transition-all dark:-fixed-dim " href="index.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="home2.html">Home 2</a>
+<a class="text-secondary dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all font-bold border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1" href="about.html">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="books.html">Books</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="discussions.html">Discussions</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="blog.html">Blog</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="dashboard.html">Dashboard</a>
+</div>
+<div class="flex items-center space-x-stack-md">
+<button class="hidden lg:block text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" id="theme-toggle">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+<button class="hidden lg:block text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors font-label-sm font-bold" id="rtl-toggle" title="Toggle RTL">RTL</button>
+<button onclick="window.location.href=\'login.html\'" class="hidden lg:block text-secondary dark:text-secondary-fixed-dim font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all">Login</button>
+<button onclick="window.location.href=\'register.html\'" class="hidden lg:block bg-primary-container dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed px-4 py-2 rounded font-label-sm text-label-sm hover:bg-secondary-container dark:hover:bg-secondary-fixed transition-all">Join Club</button>
+<button class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors lg:hidden">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<div class="flex items-center gap-stack-md">
+<button onclick="window.location.href=\'login.html\'" class="hidden lg:block font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-[#f4e6d3] transition-colors">Login</button>
+<button onclick="window.location.href=\'register.html\'" class="hidden lg:block bg-primary-container dark:bg-surface-tint text-on-primary dark:text-[#f4e6d3] px-4 py-2 rounded font-label-sm text-label-sm hover:bg-surface-tint dark:hover:bg-primary-container transition-colors">Join Club</button>
+<button class="hidden lg:block text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-[#f4e6d3] transition-colors" id="theme-toggle">
+<span class="material-symbols-outlined" data-icon="dark_mode" id="theme-icon">dark_mode</span>
+</button>
+<button class="md:hidden text-on-surface-variant dark:text-outline-variant">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-[72px]">
+<!-- Hero Section -->
+<section class="max-w-[1200px] mx-auto px-margin-safe py-section-gap-mobile md:py-section-gap text-center reveal">
+<h1 class="font-display text-display text-on-background dark:text-[#f4e6d3] mb-stack-md">About Book Haven</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant dark:text-outline-variant max-w-[720px] mx-auto">
+                A sanctuary for slow reading, deep conversations, and the timeless joy of a well-crafted sentence.
+            </p>
+</section>
+<!-- Our Story (2-column) -->
+<section class="max-w-[1200px] mx-auto px-margin-safe pb-section-gap-mobile md:pb-section-gap reveal">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="space-y-stack-md opacity-100">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background dark:text-[#f4e6d3]">Our Story</h2>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant text-on-background">
+                        Founded in the quiet corners of independent bookstores, Book Haven began as a simple desire to bring the intimacy of solitary reading into a shared space. We realized that while reading is a solo endeavor, the ideas sparked by literature demand a community to fully blossom.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant text-on-background">
+                        Today, we curate a selection of literary fiction, compelling memoirs, and narrative non-fiction, guiding our members through paced reading schedules that encourage reflection rather than racing to the final page.
+                    </p>
+</div>
+<div class="h-64 md:h-96 w-full rounded border border-outline-variant/20 premium-shadow relative overflow-hidden bg-surface-container-high dark:bg-[#2a1a0f]" data-alt="A beautifully composed photograph of a vintage reading room. The image features a worn leather armchair next to a small wooden side table piled with classic hardback books. A soft, warm light streams from a reading lamp, casting long, cozy shadows across a Persian rug. The overall aesthetic is rich, intellectual, and inviting, emphasizing deep brown and amber tones typical of a traditional library setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtU_WsfTSCOk8sTghJGUkx8m0nGtQD6350wQ4DYEnHkYMsLNYNIUVdL901TJxPVcDUkR4oZIWygY0Cf9fjMeewpFQthtGxU6ajbpyOo54gw27Viv3Q15TLUeLf1VxDompXnrSESkYD1cijQLDELUPet9uGcTitT75mRbLNCJXJ-Hm66ETvC-tjah0_24ge6tPnzXlMJRjewUhlpb0-nhHjGS7HdjxpvQdfQO_bOMosJf1AfWuApC6QTw'); background-size: cover; background-position: center;"></div>
+</div>
+</section>
+<!-- Reading Philosophy Pull Quote -->
+<section class="bg-surface-container-high dark:bg-[#25150c] border-y border-outline-variant/10 py-section-gap-mobile md:py-section-gap mb-section-gap-mobile md:mb-section-gap reveal">
+<div class="max-w-[720px] mx-auto px-margin-safe text-center">
+<span class="material-symbols-outlined text-secondary dark:text-surface-tint text-4xl mb-stack-md opacity-50" data-icon="format_quote">format_quote</span>
+<blockquote class="font-headline-md text-headline-md text-on-background dark:text-[#f4e6d3] italic mb-stack-md">
+                    "We read not to escape life, but to understand it more deeply. In a world of fleeting content, a book demands patience, and rewards it with perspective."
+                </blockquote>
+<cite class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant uppercase tracking-widest block not-italic">— Our Reading Philosophy</cite>
+</div>
+</section>
+<!-- How We Work (3 steps Bento style) -->
+<section class="max-w-[1200px] mx-auto px-margin-safe pb-section-gap-mobile md:pb-section-gap reveal">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background dark:text-[#f4e6d3] text-center mb-stack-lg">The Journey of a Book</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Step 1 -->
+<div class="bg-surface dark:bg-[#25150c] p-stack-lg rounded border border-outline-variant/20 premium-shadow flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-300">
+<div class="w-16 h-16 rounded-full bg-secondary-container dark:bg-surface-tint flex items-center justify-center mb-stack-md text-on-secondary-container dark:text-[#f4e6d3]">
+<span class="material-symbols-outlined text-2xl" data-icon="library_books">library_books</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background dark:text-[#f4e6d3] mb-stack-sm">1. We Choose</h3>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">Carefully curated selections each month, focusing on diverse voices and compelling narratives that warrant discussion.</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface dark:bg-[#25150c] p-stack-lg rounded border border-outline-variant/20 premium-shadow flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-10 dark:opacity-20" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC38Zws0ZfEq-76NVU_vy4rXAD4_lGAaB8a7xEEsyzCBqTDls2u_fztcDQJyxCZzqFGij0c8jXck4HPVBKPXeWALAwpLtTqZFskivJI65xKAQg3ssJnwPuv1UXnaeREYmHVXkMyQQ_V38IzULbwKrtXQom3gZsvxOiCQBVq2sfm9krjtkpU8NEcZB3OqufJfa4oVOQBg-83KOvpBUqA5XgoOU4UN3xKZ7QEH5fiGQ1CZyknSr1x4XNPsA'); background-size: cover; background-position: center;"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-surface-tint dark:bg-primary-container flex items-center justify-center mb-stack-md text-on-primary dark:text-[#f4e6d3]">
+<span class="material-symbols-outlined text-2xl" data-icon="menu_book">menu_book</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background dark:text-[#f4e6d3] mb-stack-sm">2. We Read</h3>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">A paced schedule that emphasizes savoring the text. We provide reading guides to help focus your thoughts along the way.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface dark:bg-[#25150c] p-stack-lg rounded border border-outline-variant/20 premium-shadow flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-300">
+<div class="w-16 h-16 rounded-full bg-primary-container dark:bg-surface-tint flex items-center justify-center mb-stack-md text-on-primary dark:text-[#f4e6d3]">
+<span class="material-symbols-outlined text-2xl" data-icon="forum">forum</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background dark:text-[#f4e6d3] mb-stack-sm">3. We Discuss</h3>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">Thoughtful, moderated discussions designed to unpack themes, share perspectives, and foster genuine connection.</p>
+</div>
+</div>
+</section>
+<!-- The Art of Slow Reading -->
+<section class="relative py-section-gap-mobile md:py-section-gap reveal overflow-hidden">
+<div class="absolute inset-0 bg-surface-container-high/90 dark:bg-[#1a0f08]/90 z-10"></div>
+<div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCke2SF3jgeh2UQGymNTJ0Jow74EHEURdPeSHo8xEcghnyps_qm9fgZ-Bp03OA6EPq49-9gzSOOJP_MfxGy6C-kDHBl7v_B9zmE-Bqh1jNOal1MhDw1EM4FKfoDFtsBInV5_7tDfxcibexXDiFw45mszvmD2vyyu0saBx9448PeziJBlRG-yfwdICaYjLiTdtx8jiMfdg1VHFYDL9VDe_sBKKSxi2q2-U1XNIUG7cgDocF8IXE57ci9hg');"></div>
+<div class="relative z-20 max-w-[1200px] mx-auto px-margin-safe">
+<div class="max-w-[720px] mx-auto text-center p-stack-lg bg-surface/90 dark:bg-[#25150c]/90 backdrop-blur-sm rounded premium-shadow border border-outline-variant/20 opacity-100">
+<h2 class="font-display text-display text-on-background dark:text-[#f4e6d3] mb-stack-md">The Art of Slow Reading</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant dark:text-outline-variant mb-stack-md text-on-background">
+                        In an age of constant scrolling and instant gratification, taking the time to read a book slowly is an act of quiet rebellion. It allows us to fully immerse ourselves in another world, to savor the language, and to let the ideas marinate in our minds.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant text-on-background">
+                        We encourage our members to approach reading not as a task to be completed, but as an experience to be enjoyed. Take notes in the margins, pause to reflect on a beautiful sentence, and allow the book to change you.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Community Values -->
+<section class="max-w-[1200px] mx-auto px-margin-safe py-section-gap-mobile md:py-section-gap reveal">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background dark:text-[#f4e6d3] text-center mb-stack-lg">Our Community Values</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-surface dark:bg-[#25150c] p-stack-lg rounded border border-outline-variant/20 premium-shadow flex flex-col items-center text-center">
+<svg class="w-8 h-8 text-secondary dark:text-[#efbba0] mb-stack-md" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+<h3 class="font-headline-md text-headline-md text-on-background dark:text-[#f4e6d3] mb-stack-sm">Patience</h3>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">We believe in taking our time, both with the books we read and with each other.</p>
+</div>
+<div class="bg-surface dark:bg-[#25150c] p-stack-lg rounded border border-outline-variant/20 premium-shadow flex flex-col items-center text-center">
+<svg class="w-8 h-8 text-secondary dark:text-[#efbba0] mb-stack-md" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
+<h3 class="font-headline-md text-headline-md text-on-background dark:text-[#f4e6d3] mb-stack-sm">Curiosity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">We approach literature and discussions with an open mind and a desire to learn.</p>
+</div>
+<div class="bg-surface dark:bg-[#25150c] p-stack-lg rounded border border-outline-variant/20 premium-shadow flex flex-col items-center text-center">
+<svg class="w-8 h-8 text-secondary dark:text-[#efbba0] mb-stack-md" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+<h3 class="font-headline-md text-headline-md text-on-background dark:text-[#f4e6d3] mb-stack-sm">Connection</h3>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">We seek to build meaningful relationships through our shared love of reading.</p>
+</div>
+<div class="bg-surface dark:bg-[#25150c] p-stack-lg rounded border border-outline-variant/20 premium-shadow flex flex-col items-center text-center">
+<svg class="w-8 h-8 text-secondary dark:text-[#efbba0] mb-stack-md" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+<h3 class="font-headline-md text-headline-md text-on-background dark:text-[#f4e6d3] mb-stack-sm">Depth</h3>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">We value deep, thoughtful conversations over superficial chatter.</p>
+</div>
+</div>
+</section>
+<!-- Global Reach -->
+<section class="relative py-section-gap reveal overflow-hidden">
+<div class="absolute inset-0 bg-primary-container/80 dark:bg-[#1a0f08]/90 z-10"></div>
+<div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDXB8Aq-z1TD1Hc6cWHkF4bsArvhieTfKiagb7y4-tEW9CVc4Vy71dWQUJivc9LCGN7AXyS2dXvAlWhS3KRTA-FbXWDZnLguJuarnLoG4tpy84VJLwmM3qqNZPCDH2myZ_pXKB3cNB3mMJOOBxAfpvg5zycYO8nYBZtUyN-rbtuPy6BP8YQqTLBW7E1kT_jIOGiA85nr3h-nVhJ8QEEdZzhlXrPBcyAp0Q2ZxFYop1GHPOfKBRAIJZeZA');"></div>
+<div class="relative z-20 max-w-[1200px] mx-auto px-margin-safe text-center">
+<h2 class="font-display text-display text-on-primary dark:text-[#f4e6d3] mb-stack-lg opacity-100">Our Global Reach</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter" id="counter-section">
+<div class="p-stack-md">
+<div class="font-display text-display text-secondary-fixed-dim dark:text-[#efbba0] mb-stack-sm counter" data-target="5000">0</div>
+<div class="font-headline-md text-headline-md text-on-primary dark:text-outline-variant">Readers</div>
+</div>
+<div class="p-stack-md">
+<div class="font-display text-display text-secondary-fixed-dim dark:text-[#efbba0] mb-stack-sm counter" data-target="12">0</div>
+<div class="font-headline-md text-headline-md text-on-primary dark:text-outline-variant">Global Chapters</div>
+</div>
+<div class="p-stack-md">
+<div class="font-display text-display text-secondary-fixed-dim dark:text-[#efbba0] mb-stack-sm counter" data-target="450">0</div>
+<div class="font-headline-md text-headline-md text-on-primary dark:text-outline-variant">Literary Events</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-high dark:bg-[#0c0502] w-full pt-20 pb-10 mt-section-gap border-t border-outline-variant/20 dark:border-white/10 relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container dark:via-primary-fixed to-transparent opacity-50"></div>
+    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-primary-container/10 dark:bg-primary-fixed/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-10 -left-20 w-72 h-72 bg-secondary-container/10 dark:bg-secondary-fixed/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 px-margin-safe max-w-[1200px] mx-auto relative z-10">
+        <!-- Brand & Description (Col span 5) -->
+        <div class="col-span-1 md:col-span-5 flex flex-col items-start">
+            <a href="index.html" class="flex items-center gap-3 mb-6 hover:scale-105 transition-transform duration-300">
+                <span class="material-symbols-outlined text-3xl text-primary dark:text-primary-fixed">menu_book</span>
+                <span class="font-display text-headline-sm font-bold text-on-surface dark:text-white tracking-tight">Book Haven</span>
+            </a>
+            <p class="font-body-lg text-on-surface-variant dark:text-surface-variant/90 mb-8 max-w-md leading-relaxed">
+                Elevating the art of slow reading. Join a community of literature lovers dedicated to meaningful discussions, curated selections, and shared intellectual growth.
+            </p>
+            <div class="flex gap-4">
+                <!-- Social Icons -->
+                <a href="#" class="w-10 h-10 rounded-full bg-surface-container dark:bg-transparent border border-outline-variant/30 dark:border-white/20 flex items-center justify-center text-on-surface-variant dark:text-[#fdfdf9] hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+                    <span class="material-symbols-outlined text-sm">language</span>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-surface-container dark:bg-transparent border border-outline-variant/30 dark:border-white/20 flex items-center justify-center text-on-surface-variant dark:text-[#fdfdf9] hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+                    <span class="material-symbols-outlined text-sm">alternate_email</span>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-surface-container dark:bg-transparent border border-outline-variant/30 dark:border-white/20 flex items-center justify-center text-on-surface-variant dark:text-[#fdfdf9] hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+                    <span class="material-symbols-outlined text-sm">share</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Quick Links (Col span 2) -->
+        <div class="col-span-1 md:col-span-2 md:col-start-7">
+            <h4 class="font-headline-sm text-title-md font-semibold text-on-surface dark:text-white mb-6 border-b border-outline-variant/30 dark:border-white/10 pb-2 inline-block">Explore</h4>
+            <ul class="flex flex-col space-y-4">
+                <li><a href="index.html" class="font-label-sm text-body-md text-on-surface-variant dark:text-surface-variant/80 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 h-[2px] bg-primary dark:bg-primary-fixed transition-all duration-300 group-hover:w-4"></span> Home</a></li>
+                <li><a href="about.html" class="font-label-sm text-body-md text-on-surface-variant dark:text-surface-variant/80 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 h-[2px] bg-primary dark:bg-primary-fixed transition-all duration-300 group-hover:w-4"></span> About Us</a></li>
+                <li><a href="books.html" class="font-label-sm text-body-md text-on-surface-variant dark:text-surface-variant/80 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 h-[2px] bg-primary dark:bg-primary-fixed transition-all duration-300 group-hover:w-4"></span> Our Library</a></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <!-- Legal & Newsletter (Col span 3) -->
+        <div class="col-span-1 md:col-span-3 md:col-start-10">
+            <h4 class="font-headline-sm text-title-md font-semibold text-on-surface dark:text-white mb-6 border-b border-outline-variant/30 dark:border-white/10 pb-2 inline-block">Stay Updated</h4>
+            <p class="font-body-md text-on-surface-variant dark:text-surface-variant/80 mb-4">Subscribe to our newsletter for curated reading lists and event updates.</p>
+            <div class="flex flex-col gap-2 mb-8">
+                <div class="relative group">
+                    <input type="email" placeholder="Enter your email" class="w-full bg-surface-container dark:bg-dark-surface border border-outline-variant/50 dark:border-white/20 rounded-lg px-4 py-3 font-body-md text-on-surface dark:text-white focus:outline-none focus:border-primary dark:focus:border-primary-fixed transition-colors" />
+                    <button class="absolute right-1 top-1 bottom-1 px-3 bg-primary-container dark:bg-primary-fixed text-on-primary-container dark:text-on-primary-fixed rounded-md hover:opacity-90 transition-opacity">
+                        <span class="material-symbols-outlined text-sm pt-1">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-x-6 gap-y-2">
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant/60 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Privacy</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant/60 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Terms</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant/60 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Cookies</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-16 pt-6 border-t border-outline-variant/20 dark:border-white/10 text-center relative z-10 px-margin-safe max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-body-sm text-label-md text-on-surface-variant dark:text-surface-variant/60">
+            &copy; 2026 Book Haven. All rights reserved.
+        </p>
+        <p class="font-body-sm text-label-md text-on-surface-variant dark:text-surface-variant/60 flex items-center gap-1">
+            Made with <span class="material-symbols-outlined text-xs text-error">favorite</span> by fellow readers
+        </p>
+    </div>
+</footer>
+<script>
+    // Theme Toggle Logic
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const htmlElement = document.documentElement;
+
+    function updateThemeIcon() {
+        if (htmlElement.classList.contains('dark')) {
+            themeIcon.textContent = 'light_mode';
+        } else {
+            themeIcon.textContent = 'dark_mode';
+        }
+    }
+
+    // Set initial icon
+    updateThemeIcon();
+
+    themeToggleBtn.addEventListener('click', () => {
+        htmlElement.classList.toggle('dark');
+        htmlElement.classList.toggle('light');
+        
+        if (htmlElement.classList.contains('dark')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+        updateThemeIcon();
+    });
+
+    // Scroll Reveal Animation
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal(); // Trigger on load
+
+    // Counter Animation
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200; // The lower the slower
+
+    const animateCounters = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText.replace(/\+/g, '');
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target + "+";
+                    }
+                };
+                updateCount();
+                observer.unobserve(counter);
+            }
+        });
+    };
+
+    const counterObserver = new IntersectionObserver(animateCounters, {
+        threshold: 0.5
+    });
+
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
+</script>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const rtlToggleBtn = document.getElementById('rtl-toggle');
+        if (rtlToggleBtn) {
+            rtlToggleBtn.addEventListener('click', function() {
+                if (document.documentElement.getAttribute('dir') === 'rtl') {
+                    document.documentElement.setAttribute('dir', 'ltr');
+                } else {
+                    document.documentElement.setAttribute('dir', 'rtl');
+                }
+            });
+        }
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Mobile Menu Logic
+        const nav = document.querySelector('nav');
+        if (!nav) return;
+        
+        const hamburgerBtn = nav.querySelector('button.lg\:hidden') || nav.querySelector('.lg\:hidden');
+        const desktopMenu = nav.querySelector('.hidden.lg\:flex.space-x-gutter');
+        
+        if (hamburgerBtn && desktopMenu && !document.getElementById('mobile-menu-container')) {
+            // Create mobile menu container
+            const mobileMenu = document.createElement('div');
+            mobileMenu.id = 'mobile-menu-container';
+            mobileMenu.className = 'hidden lg:hidden bg-background dark:bg-[#1a0f08] absolute top-[72px] left-0 w-full border-b border-outline-variant/10 dark:border-outline-variant/5 shadow-lg flex-col px-8 py-6 space-y-4';
+            
+            // Clone links
+            const links = desktopMenu.cloneNode(true);
+            links.className = 'flex flex-col space-y-6';
+            
+            // Fix text size for mobile
+            const anchorTags = links.querySelectorAll('a');
+            anchorTags.forEach(a => {
+                a.classList.add('text-base');
+            });
+            
+            // Toggles Container
+            const togglesContainer = document.createElement('div');
+            togglesContainer.className = 'flex justify-center items-center space-x-8 pt-4 border-t border-outline-variant/10 dark:border-white/10 w-full';
+            
+            // Theme Toggle
+            const themeBtn = document.createElement('button');
+            themeBtn.className = 'text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors flex items-center space-x-2';
+            themeBtn.innerHTML = '<span class="material-symbols-outlined dark:hidden">dark_mode</span><span class="material-symbols-outlined hidden dark:block">light_mode</span><span class="font-label-sm font-bold">Theme</span>';
+            themeBtn.addEventListener('click', function() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.theme = 'light';
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.theme = 'dark';
+                }
+            });
+            
+            // RTL Toggle
+            const rtlBtnMobile = document.createElement('button');
+            rtlBtnMobile.className = 'text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors font-label-sm font-bold flex items-center';
+            rtlBtnMobile.innerText = 'RTL';
+            rtlBtnMobile.addEventListener('click', function() {
+                if (document.documentElement.getAttribute('dir') === 'rtl') {
+                    document.documentElement.setAttribute('dir', 'ltr');
+                } else {
+                    document.documentElement.setAttribute('dir', 'rtl');
+                }
+            });
+            
+            togglesContainer.appendChild(themeBtn);
+            togglesContainer.appendChild(rtlBtnMobile);
+
+            // Add Login and Join Club to mobile menu
+            const loginBtn = document.createElement('a');
+            loginBtn.href = 'login.html';
+            loginBtn.className = 'text-secondary dark:text-secondary-fixed-dim font-label-sm font-bold pt-4 block w-full text-center text-base';
+            loginBtn.innerText = 'Login';
+            
+            const joinBtn = document.createElement('a');
+            joinBtn.href = 'register.html';
+            joinBtn.className = 'bg-primary-container dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed px-4 py-3 rounded font-label-sm font-bold text-center block w-full mt-4 text-base';
+            joinBtn.innerText = 'Join Club';
+            
+            mobileMenu.appendChild(links);
+            mobileMenu.appendChild(togglesContainer);
+            mobileMenu.appendChild(loginBtn);
+            mobileMenu.appendChild(joinBtn);
+            
+            nav.appendChild(mobileMenu);
+            
+            // Toggle Logic
+            hamburgerBtn.addEventListener('click', function() {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                const icon = hamburgerBtn.querySelector('span');
+                
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex');
+                    if(icon) icon.textContent = 'close';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    if(icon) icon.textContent = 'menu';
+                }
+            });
+        }
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const themeBtns = document.querySelectorAll('#theme-toggle, [onclick="toggleTheme()"], .theme-toggle-btn');
+        themeBtns.forEach(btn => {
+            btn.removeAttribute('onclick'); // in case it has one
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        });
+    });
+</script>
+
+</body></html>

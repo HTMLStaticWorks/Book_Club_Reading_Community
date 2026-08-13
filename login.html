@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Book Haven - Login &amp; Register</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Literata:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .dark .glass-card {
+            background: rgba(26, 15, 8, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+        .glass-input {
+            background: rgba(255, 248, 245, 0.8);
+            border: 1px solid rgba(131, 116, 109, 0.2);
+            transition: all 0.3s ease;
+        }
+        .dark .glass-input {
+            background: rgba(26, 15, 8, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffede4;
+        }
+        .glass-input:focus {
+            background: rgba(255, 248, 245, 1);
+            border-color: #ffa535; /* secondary-container (Warm Amber) */
+            box-shadow: inset 0 0 5px rgba(255, 165, 53, 0.2);
+            outline: none;
+        }
+        .dark .glass-input:focus {
+            background: rgba(26, 15, 8, 0.9);
+            border-color: #ffa535;
+        }
+        .toggle-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+        }
+        .flipper {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        .flipper.flipped {
+            transform: rotateY(180deg);
+        }
+        .front, .back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .back {
+            transform: rotateY(180deg);
+        }
+        
+        .theme-toggle-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #3d1f0d;
+        }
+        .dark .theme-toggle-btn {
+            background: rgba(26, 15, 8, 0.4);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #efbba0;
+        }
+        .theme-toggle-btn:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .dark .theme-toggle-btn:hover {
+            background: rgba(26, 15, 8, 0.6);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-container": "#002e0c",
+                      "on-secondary": "#ffffff",
+                      "surface-tint": "#7d553f",
+                      "secondary-fixed-dim": "#ffb86b",
+                      "background": "#fff8f5",
+                      "tertiary": "#001604",
+                      "surface-dim": "#f4d4c1",
+                      "surface-container-high": "#ffe3d2",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#fff8f5",
+                      "surface-container-highest": "#fcdcc9",
+                      "surface-container": "#ffeade",
+                      "on-tertiary-fixed-variant": "#24502a",
+                      "inverse-surface": "#3f2c1f",
+                      "on-primary-fixed-variant": "#623e2a",
+                      "secondary-container": "#ffa535",
+                      "on-secondary-fixed": "#2c1700",
+                      "on-background": "#28180c",
+                      "on-error-container": "#93000a",
+                      "secondary": "#895100",
+                      "on-secondary-fixed-variant": "#683d00",
+                      "on-primary-fixed": "#2f1404",
+                      "on-error": "#ffffff",
+                      "on-secondary-container": "#6b3f00",
+                      "secondary-fixed": "#ffdcbc",
+                      "outline-variant": "#d5c3bb",
+                      "on-primary-container": "#b2846b",
+                      "inverse-on-surface": "#ffede4",
+                      "surface-bright": "#fff8f5",
+                      "primary-container": "#3d1f0d",
+                      "on-surface": "#28180c",
+                      "error": "#ba1a1a",
+                      "on-surface-variant": "#51443e",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-container": "#6a996b",
+                      "primary-fixed-dim": "#efbba0",
+                      "primary-fixed": "#ffdbca",
+                      "primary": "#240b00",
+                      "surface-container-low": "#fff1ea",
+                      "inverse-primary": "#efbba0",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#a1d3a1",
+                      "on-tertiary-fixed": "#002107",
+                      "tertiary-fixed": "#bdefbb",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-variant": "#fcdcc9",
+                      "outline": "#83746d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "margin-safe": "32px",
+                      "stack-sm": "8px",
+                      "section-gap-mobile": "64px",
+                      "section-gap": "96px",
+                      "gutter": "24px",
+                      "stack-lg": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Playfair Display"],
+                      "headline-lg-mobile": ["Playfair Display"],
+                      "label-sm": ["Literata"],
+                      "headline-lg": ["Playfair Display"],
+                      "body-md": ["Literata"],
+                      "display": ["Playfair Display"],
+                      "body-lg": ["Literata"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body class="bg-background dark:bg-[#1a0f08] text-on-background dark:text-[#ffede4] min-h-screen flex items-center justify-center relative overflow-hidden transition-colors duration-500">
+<nav class="bg-background/80 dark:bg-[#1a0f08]/90 backdrop-blur-md border-b border-outline-variant/10 dark:border-outline-variant/5 shadow-sm dark:shadow-none fixed top-0 w-full h-[72px] z-50">
+<div class="flex justify-between items-center h-full px-margin-safe max-w-[1200px] mx-auto">
+<a class="font-headline-md text-headline-md text-on-background dark:text-primary-fixed dark:-fixed-dim " href="index.html">Book Haven</a>
+<div class="hidden lg:flex space-x-gutter">
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim dark:-fixed-dim font-label-sm text-label-sm hover:text-on-surface-variant dark:hover:text-secondary-fixed-dim transition-all dark:-fixed-dim " href="index.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="home2.html">Home 2</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="about.html">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="books.html">Books</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="discussions.html">Discussions</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="blog.html">Blog</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="dashboard.html">Dashboard</a>
+</div>
+<div class="flex items-center space-x-stack-md">
+<button class="hidden lg:block text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" id="theme-toggle">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+<button class="hidden lg:block text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors font-label-sm font-bold" id="rtl-toggle" title="Toggle RTL">RTL</button>
+<button onclick="window.location.href=\'login.html\'" class="hidden lg:block text-secondary dark:text-secondary-fixed-dim font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all">Login</button>
+<button onclick="window.location.href=\'register.html\'" class="hidden lg:block bg-primary-container dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed px-4 py-2 rounded font-label-sm text-label-sm hover:bg-secondary-container dark:hover:bg-secondary-fixed transition-all">Join Club</button>
+<button class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors lg:hidden">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Blurred Background Image -->
+<div class="absolute inset-0 bg-cover bg-center filter blur-md scale-105 z-0 transition-opacity duration-500" data-alt="A softly blurred image of a grand, classic library interior with floor-to-ceiling wooden bookshelves filled with leather-bound books. The lighting is warm and inviting, evoking a sense of calm and quiet study. The depth of field is very shallow, creating large, soft bokeh effects that blur the details into abstract fields of warm amber, deep walnut brown, and soft parchment colors, providing a sophisticated backdrop without distracting from foreground elements." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDUa6z_ze23MU5CRaFasu0CseDdc-Gr4HS4sfFLD51Mcm9W-fw5ZH5ktzeRUy4XKLL5lZs6sL76Z26_gciFVzzpGdQWXl16m31wdfA89T741Db79uuMhD7TaNPOm5NOiWYzbVqPOn5YObkkNBJRmOz6PyB-4nDaSRlNmcv9rdRaO8ABifDxj30gqu6AUBTSfaBmeJel5wFK1IXQBfPpNckAbgaQ7BZZjg5Y8wo6ZpDv-SiMZZidhbw5Pg')"></div>
+<div class="absolute inset-0 bg-primary/20 dark:bg-black/60 mix-blend-multiply z-0 transition-colors duration-500"></div> <!-- Slight darkening overlay -->
+<button aria-label="Toggle Dark Mode" class="theme-toggle-btn" onclick="toggleTheme()">
+<span class="material-symbols-outlined dark:hidden" data-icon="dark_mode">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block" data-icon="light_mode">light_mode</span>
+</button>
+<main class="relative z-10 w-full max-w-[480px] px-margin-safe h-[650px]">
+<div class="toggle-container fade-in">
+<div class="flipper" id="cardFlipper">
+<!-- Front: Login -->
+<div class="front">
+<div class="glass-card rounded-xl p-8 flex flex-col h-full shadow-[0_4px_16px_rgba(61,31,13,0.1)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+<div class="text-center mb-stack-lg">
+<span class="material-symbols-outlined text-[48px] text-primary-container dark:text-inverse-primary mb-stack-sm transition-colors duration-300" data-icon="menu_book">menu_book</span>
+<h1 class="font-headline-lg text-headline-lg text-primary-container dark:text-inverse-primary transition-colors duration-300">Book Haven</h1>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant mt-stack-sm transition-colors duration-300">Welcome back to the library.</p>
+</div>
+<form class="flex-grow flex flex-col gap-stack-md justify-center">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant mb-2 transition-colors duration-300" for="login-email">Email Address</label>
+<input class="glass-input w-full rounded font-body-md text-body-md p-3 placeholder-outline-variant dark:placeholder-outline/60" id="login-email" placeholder="reader@example.com" type="email"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant mb-2 flex justify-between transition-colors duration-300" for="login-password">
+<span>Password</span>
+<a class="text-secondary dark:text-secondary-fixed hover:text-secondary-container dark:hover:text-secondary-fixed-dim transition-colors" href="#">Forgot?</a>
+</label>
+<input class="glass-input w-full rounded font-body-md text-body-md p-3 placeholder-outline-variant dark:placeholder-outline/60" id="login-password" placeholder="••••••••" type="password"/>
+</div>
+<button class="w-full bg-primary-container dark:bg-inverse-primary text-on-primary dark:text-primary rounded-lg py-3 mt-stack-sm font-label-sm text-label-sm hover:bg-primary dark:hover:brightness-110 transition-colors flex items-center justify-center gap-2 group" type="button">
+                                Enter Library
+                                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<div class="mt-stack-lg text-center font-body-md text-body-md text-on-surface-variant dark:text-outline-variant transition-colors duration-300">
+                            New to the club? 
+                            <button class="text-secondary dark:text-secondary-fixed hover:text-secondary-container dark:hover:text-secondary-fixed-dim font-label-sm text-label-sm underline underline-offset-4 transition-colors" onclick="toggleCard()">Apply for Membership</button>
+</div>
+</div>
+</div>
+<!-- Back: Register -->
+<div class="back">
+<div class="glass-card rounded-xl p-8 flex flex-col h-full shadow-[0_4px_16px_rgba(61,31,13,0.1)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+<div class="text-center mb-stack-lg">
+<span class="material-symbols-outlined text-[48px] text-primary-container dark:text-inverse-primary mb-stack-sm transition-colors duration-300" data-icon="auto_stories">auto_stories</span>
+<h2 class="font-headline-md text-headline-md text-primary-container dark:text-inverse-primary transition-colors duration-300">Join the Club</h2>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant mt-2 transition-colors duration-300">Begin your slow reading journey.</p>
+</div>
+<form class="flex-grow flex flex-col gap-stack-md justify-center">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant mb-2 transition-colors duration-300" for="reg-name">Preferred Name</label>
+<input class="glass-input w-full rounded font-body-md text-body-md p-3 placeholder-outline-variant dark:placeholder-outline/60" id="reg-name" placeholder="Jane Austen" type="text"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant mb-2 transition-colors duration-300" for="reg-email">Email Address</label>
+<input class="glass-input w-full rounded font-body-md text-body-md p-3 placeholder-outline-variant dark:placeholder-outline/60" id="reg-email" placeholder="jane@example.com" type="email"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant mb-2 transition-colors duration-300" for="reg-genre">Favorite Genre</label>
+<select class="glass-input w-full rounded font-body-md text-body-md p-3 appearance-none dark:text-[#ffede4] dark:bg-[#1a0f08]" id="reg-genre">
+<option disabled="" selected="" value="">Select a genre...</option>
+<option value="fiction">Literary Fiction</option>
+<option value="nonfiction">Historical Non-Fiction</option>
+<option value="poetry">Poetry</option>
+<option value="philosophy">Philosophy</option>
+</select>
+</div>
+<button class="w-full bg-secondary-container dark:bg-secondary-fixed text-on-secondary-fixed dark:text-secondary rounded-lg py-3 mt-stack-sm font-label-sm text-label-sm hover:brightness-105 transition-all shadow-sm" type="button">
+                                Submit Application
+                            </button>
+</form>
+<div class="mt-stack-lg text-center font-body-md text-body-md text-on-surface-variant dark:text-outline-variant transition-colors duration-300">
+                            Already a member? 
+                            <button class="text-secondary dark:text-secondary-fixed hover:text-secondary-container dark:hover:text-secondary-fixed-dim font-label-sm text-label-sm underline underline-offset-4 transition-colors" onclick="toggleCard()">Return to Login</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        function toggleCard() {
+            document.getElementById('cardFlipper').classList.toggle('flipped');
+        }
+        
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            document.documentElement.classList.toggle('light');
+        }
+    </script>
+<footer class="bg-surface-container-high dark:bg-[#0c0502] w-full pt-20 pb-10 mt-section-gap border-t border-outline-variant/20 dark:border-white/10 relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container dark:via-primary-fixed to-transparent opacity-50"></div>
+    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-primary-container/10 dark:bg-primary-fixed/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-10 -left-20 w-72 h-72 bg-secondary-container/10 dark:bg-secondary-fixed/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 px-margin-safe max-w-[1200px] mx-auto relative z-10">
+        <!-- Brand & Description (Col span 5) -->
+        <div class="col-span-1 md:col-span-5 flex flex-col items-start">
+            <a href="index.html" class="flex items-center gap-3 mb-6 hover:scale-105 transition-transform duration-300">
+                <span class="material-symbols-outlined text-3xl text-primary dark:text-primary-fixed">menu_book</span>
+                <span class="font-display text-headline-sm font-bold text-on-surface dark:text-white tracking-tight">Book Haven</span>
+            </a>
+            <p class="font-body-lg text-on-surface-variant dark:text-surface-variant/90 mb-8 max-w-md leading-relaxed">
+                Elevating the art of slow reading. Join a community of literature lovers dedicated to meaningful discussions, curated selections, and shared intellectual growth.
+            </p>
+            <div class="flex gap-4">
+                <!-- Social Icons -->
+                <a href="#" class="w-10 h-10 rounded-full bg-surface-container dark:bg-transparent border border-outline-variant/30 dark:border-white/20 flex items-center justify-center text-on-surface-variant dark:text-[#fdfdf9] hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+                    <span class="material-symbols-outlined text-sm">language</span>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-surface-container dark:bg-transparent border border-outline-variant/30 dark:border-white/20 flex items-center justify-center text-on-surface-variant dark:text-[#fdfdf9] hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+                    <span class="material-symbols-outlined text-sm">alternate_email</span>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-surface-container dark:bg-transparent border border-outline-variant/30 dark:border-white/20 flex items-center justify-center text-on-surface-variant dark:text-[#fdfdf9] hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+                    <span class="material-symbols-outlined text-sm">share</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Quick Links (Col span 2) -->
+        <div class="col-span-1 md:col-span-2 md:col-start-7">
+            <h4 class="font-headline-sm text-title-md font-semibold text-on-surface dark:text-white mb-6 border-b border-outline-variant/30 dark:border-white/10 pb-2 inline-block">Explore</h4>
+            <ul class="flex flex-col space-y-4">
+                <li><a href="index.html" class="font-label-sm text-body-md text-on-surface-variant dark:text-surface-variant/80 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 h-[2px] bg-primary dark:bg-primary-fixed transition-all duration-300 group-hover:w-4"></span> Home</a></li>
+                <li><a href="about.html" class="font-label-sm text-body-md text-on-surface-variant dark:text-surface-variant/80 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 h-[2px] bg-primary dark:bg-primary-fixed transition-all duration-300 group-hover:w-4"></span> About Us</a></li>
+                <li><a href="books.html" class="font-label-sm text-body-md text-on-surface-variant dark:text-surface-variant/80 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 h-[2px] bg-primary dark:bg-primary-fixed transition-all duration-300 group-hover:w-4"></span> Our Library</a></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <!-- Legal & Newsletter (Col span 3) -->
+        <div class="col-span-1 md:col-span-3 md:col-start-10">
+            <h4 class="font-headline-sm text-title-md font-semibold text-on-surface dark:text-white mb-6 border-b border-outline-variant/30 dark:border-white/10 pb-2 inline-block">Stay Updated</h4>
+            <p class="font-body-md text-on-surface-variant dark:text-surface-variant/80 mb-4">Subscribe to our newsletter for curated reading lists and event updates.</p>
+            <div class="flex flex-col gap-2 mb-8">
+                <div class="relative group">
+                    <input type="email" placeholder="Enter your email" class="w-full bg-surface-container dark:bg-dark-surface border border-outline-variant/50 dark:border-white/20 rounded-lg px-4 py-3 font-body-md text-on-surface dark:text-white focus:outline-none focus:border-primary dark:focus:border-primary-fixed transition-colors" />
+                    <button class="absolute right-1 top-1 bottom-1 px-3 bg-primary-container dark:bg-primary-fixed text-on-primary-container dark:text-on-primary-fixed rounded-md hover:opacity-90 transition-opacity">
+                        <span class="material-symbols-outlined text-sm pt-1">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-x-6 gap-y-2">
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant/60 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Privacy</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant/60 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Terms</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant/60 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Cookies</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-16 pt-6 border-t border-outline-variant/20 dark:border-white/10 text-center relative z-10 px-margin-safe max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-body-sm text-label-md text-on-surface-variant dark:text-surface-variant/60">
+            &copy; 2026 Book Haven. All rights reserved.
+        </p>
+        <p class="font-body-sm text-label-md text-on-surface-variant dark:text-surface-variant/60 flex items-center gap-1">
+            Made with <span class="material-symbols-outlined text-xs text-error">favorite</span> by fellow readers
+        </p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const rtlToggleBtn = document.getElementById('rtl-toggle');
+        if (rtlToggleBtn) {
+            rtlToggleBtn.addEventListener('click', function() {
+                if (document.documentElement.getAttribute('dir') === 'rtl') {
+                    document.documentElement.setAttribute('dir', 'ltr');
+                } else {
+                    document.documentElement.setAttribute('dir', 'rtl');
+                }
+            });
+        }
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Mobile Menu Logic
+        const nav = document.querySelector('nav');
+        if (!nav) return;
+        
+        const hamburgerBtn = nav.querySelector('button.lg\:hidden') || nav.querySelector('.lg\:hidden');
+        const desktopMenu = nav.querySelector('.hidden.lg\:flex.space-x-gutter');
+        
+        if (hamburgerBtn && desktopMenu && !document.getElementById('mobile-menu-container')) {
+            // Create mobile menu container
+            const mobileMenu = document.createElement('div');
+            mobileMenu.id = 'mobile-menu-container';
+            mobileMenu.className = 'hidden lg:hidden bg-background dark:bg-[#1a0f08] absolute top-[72px] left-0 w-full border-b border-outline-variant/10 dark:border-outline-variant/5 shadow-lg flex-col px-8 py-6 space-y-4';
+            
+            // Clone links
+            const links = desktopMenu.cloneNode(true);
+            links.className = 'flex flex-col space-y-6';
+            
+            // Fix text size for mobile
+            const anchorTags = links.querySelectorAll('a');
+            anchorTags.forEach(a => {
+                a.classList.add('text-base');
+            });
+            
+            // Toggles Container
+            const togglesContainer = document.createElement('div');
+            togglesContainer.className = 'flex justify-center items-center space-x-8 pt-4 border-t border-outline-variant/10 dark:border-white/10 w-full';
+            
+            // Theme Toggle
+            const themeBtn = document.createElement('button');
+            themeBtn.className = 'text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors flex items-center space-x-2';
+            themeBtn.innerHTML = '<span class="material-symbols-outlined dark:hidden">dark_mode</span><span class="material-symbols-outlined hidden dark:block">light_mode</span><span class="font-label-sm font-bold">Theme</span>';
+            themeBtn.addEventListener('click', function() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.theme = 'light';
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.theme = 'dark';
+                }
+            });
+            
+            // RTL Toggle
+            const rtlBtnMobile = document.createElement('button');
+            rtlBtnMobile.className = 'text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors font-label-sm font-bold flex items-center';
+            rtlBtnMobile.innerText = 'RTL';
+            rtlBtnMobile.addEventListener('click', function() {
+                if (document.documentElement.getAttribute('dir') === 'rtl') {
+                    document.documentElement.setAttribute('dir', 'ltr');
+                } else {
+                    document.documentElement.setAttribute('dir', 'rtl');
+                }
+            });
+            
+            togglesContainer.appendChild(themeBtn);
+            togglesContainer.appendChild(rtlBtnMobile);
+
+            // Add Login and Join Club to mobile menu
+            const loginBtn = document.createElement('a');
+            loginBtn.href = 'login.html';
+            loginBtn.className = 'text-secondary dark:text-secondary-fixed-dim font-label-sm font-bold pt-4 block w-full text-center text-base';
+            loginBtn.innerText = 'Login';
+            
+            const joinBtn = document.createElement('a');
+            joinBtn.href = 'register.html';
+            joinBtn.className = 'bg-primary-container dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed px-4 py-3 rounded font-label-sm font-bold text-center block w-full mt-4 text-base';
+            joinBtn.innerText = 'Join Club';
+            
+            mobileMenu.appendChild(links);
+            mobileMenu.appendChild(togglesContainer);
+            mobileMenu.appendChild(loginBtn);
+            mobileMenu.appendChild(joinBtn);
+            
+            nav.appendChild(mobileMenu);
+            
+            // Toggle Logic
+            hamburgerBtn.addEventListener('click', function() {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                const icon = hamburgerBtn.querySelector('span');
+                
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex');
+                    if(icon) icon.textContent = 'close';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    if(icon) icon.textContent = 'menu';
+                }
+            });
+        }
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const themeBtns = document.querySelectorAll('#theme-toggle, [onclick="toggleTheme()"], .theme-toggle-btn');
+        themeBtns.forEach(btn => {
+            btn.removeAttribute('onclick'); // in case it has one
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        });
+    });
+</script>
+
+</body></html>

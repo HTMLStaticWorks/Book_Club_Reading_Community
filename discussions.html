@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Book Haven - Discussions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#002e0c",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#7d553f",
+                        "secondary-fixed-dim": "#ffb86b",
+                        "background": "#fff8f5",
+                        "tertiary": "#001604",
+                        "surface-dim": "#f4d4c1",
+                        "surface-container-high": "#ffe3d2",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fff8f5",
+                        "surface-container-highest": "#fcdcc9",
+                        "surface-container": "#ffeade",
+                        "on-tertiary-fixed-variant": "#24502a",
+                        "inverse-surface": "#3f2c1f",
+                        "on-primary-fixed-variant": "#623e2a",
+                        "secondary-container": "#ffa535",
+                        "on-secondary-fixed": "#2c1700",
+                        "on-background": "#28180c",
+                        "on-error-container": "#93000a",
+                        "secondary": "#895100",
+                        "on-secondary-fixed-variant": "#683d00",
+                        "on-primary-fixed": "#2f1404",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#6b3f00",
+                        "secondary-fixed": "#ffdcbc",
+                        "outline-variant": "#d5c3bb",
+                        "on-primary-container": "#b2846b",
+                        "inverse-on-surface": "#ffede4",
+                        "surface-bright": "#fff8f5",
+                        "primary-container": "#3d1f0d",
+                        "on-surface": "#28180c",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#51443e",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#6a996b",
+                        "primary-fixed-dim": "#efbba0",
+                        "primary-fixed": "#ffdbca",
+                        "primary": "#240b00",
+                        "surface-container-low": "#fff1ea",
+                        "inverse-primary": "#efbba0",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#a1d3a1",
+                        "on-tertiary-fixed": "#002107",
+                        "tertiary-fixed": "#bdefbb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#fcdcc9",
+                        "outline": "#83746d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "margin-safe": "32px",
+                        "stack-sm": "8px",
+                        "section-gap-mobile": "64px",
+                        "section-gap": "96px",
+                        "gutter": "24px",
+                        "stack-lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "label-sm": ["Literata"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-md": ["Literata"],
+                        "display": ["Playfair Display"],
+                        "body-lg": ["Literata"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-sm": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script>
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+            } else {
+                html.classList.remove('light');
+                html.classList.add('dark');
+            }
+        }
+    </script>
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body class="bg-background dark:bg-[#1a0f08] text-on-background dark:text-[#f4d4c1] font-body-md min-h-screen flex flex-col transition-colors duration-300">
+<!-- TopNavBar -->
+<nav class="bg-background/80 dark:bg-[#1a0f08]/90 backdrop-blur-md border-b border-outline-variant/10 dark:border-outline-variant/5 shadow-sm dark:shadow-none fixed top-0 w-full h-[72px] z-50">
+<div class="flex justify-between items-center h-full px-margin-safe max-w-[1200px] mx-auto">
+<a class="font-headline-md text-headline-md text-on-background dark:text-primary-fixed dark:-fixed-dim " href="index.html">Book Haven</a>
+<div class="hidden lg:flex space-x-gutter">
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim dark:-fixed-dim font-label-sm text-label-sm hover:text-on-surface-variant dark:hover:text-secondary-fixed-dim transition-all dark:-fixed-dim " href="index.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="home2.html">Home 2</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="about.html">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="books.html">Books</a>
+<a class="text-secondary dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all font-bold border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1" href="discussions.html">Discussions</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="blog.html">Blog</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="dashboard.html">Dashboard</a>
+</div>
+<div class="flex items-center space-x-stack-md">
+<button class="hidden lg:block text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" id="theme-toggle">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+<button class="hidden lg:block text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors font-label-sm font-bold" id="rtl-toggle" title="Toggle RTL">RTL</button>
+<button onclick="window.location.href=\'login.html\'" class="hidden lg:block text-secondary dark:text-secondary-fixed-dim font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all">Login</button>
+<button onclick="window.location.href=\'register.html\'" class="hidden lg:block bg-primary-container dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed px-4 py-2 rounded font-label-sm text-label-sm hover:bg-secondary-container dark:hover:bg-secondary-fixed transition-all">Join Club</button>
+<button class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors lg:hidden">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[104px] pb-section-gap px-margin-safe max-w-[1200px] mx-auto w-full">
+<!-- Hero Section -->
+<header class="mb-section-gap max-w-[720px]">
+<h1 class="font-display text-display text-on-background dark:text-[#f4d4c1] mb-stack-md md:text-headline-lg-mobile lg:text-display">Community Discussions</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant dark:text-[#d5c3bb]">Engage in thoughtful discourse with fellow readers. Dive deep into plot nuances, character arcs, and thematic explorations.</p>
+</header>
+<!-- Filters & Search Toolbar -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-stack-lg gap-stack-md border-b border-outline-variant/20 dark:border-white/10 pb-stack-md">
+<!-- Filters -->
+<div class="flex space-x-stack-sm overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
+<button class="px-4 py-2 bg-surface-container-highest dark:bg-[#3d1f0d] text-on-surface dark:text-[#f4d4c1] font-label-sm text-label-sm rounded-full whitespace-nowrap">All Topics</button>
+<button class="px-4 py-2 text-on-surface-variant dark:text-[#d5c3bb] hover:bg-surface-container dark:hover:bg-[#2c1700] font-label-sm text-label-sm rounded-full transition-colors whitespace-nowrap">Active</button>
+<button class="px-4 py-2 text-on-surface-variant dark:text-[#d5c3bb] hover:bg-surface-container dark:hover:bg-[#2c1700] font-label-sm text-label-sm rounded-full transition-colors whitespace-nowrap">Archived</button>
+</div>
+<!-- Search -->
+<div class="relative w-full md:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-outline dark:text-[#83746d] text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface dark:bg-[#1a0f08] border border-outline-variant dark:border-[#3d1f0d] rounded font-body-md text-body-md dark:text-[#f4d4c1] focus:outline-none focus:border-secondary dark:focus:border-[#efbba0] focus:ring-1 focus:ring-secondary dark:focus:ring-[#efbba0] transition-all" placeholder="Search discussions..." type="text"/>
+</div>
+</div>
+<!-- Threads Layout (Bento-ish Grid + List) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter relative">
+<!-- Main Thread List (Columns 1-8) -->
+<div class="lg:col-span-8 flex flex-col gap-stack-md">
+<!-- Thread Item 1 -->
+<article class="bg-surface-lowest dark:bg-[#24130a] border border-outline-variant/30 dark:border-white/5 rounded p-stack-lg hover:shadow-sm hover:border-secondary/30 dark:hover:border-[#efbba0]/30 transition-all cursor-pointer relative group">
+<div class="flex gap-stack-md">
+<div class="hidden sm:block flex-shrink-0 w-24 h-36 bg-surface-container-low dark:bg-[#1a0f08] rounded overflow-hidden shadow-[0_4px_12px_rgba(61,31,13,0.05)] dark:shadow-none border border-outline-variant/10 dark:border-white/5">
+<img class="w-full h-full object-cover" data-alt="A beautifully designed book cover featuring abstract watercolor shapes in warm earth tones and subtle gold foil accents, displayed straight on against a soft, light background, minimalist literary aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChKN_hLobIalr0WdjPOsYpj20rMyOYd-Vp685lhH_SnWmgyS1Uh7ofE5ndnLriCPeyVa_1SINwCG9EjoK9EXMfGv7VCBfFP1YRIM9Gh-xcEPc5TVfb1fEgUH_aRGEj6qPYSLif3wZ2NUyZAQDh6v9oZqREtInhMXuFhHGA7Ow0U9WkWTvWp2UnanlgzdaMqcMF-sYiPIOgvmsut_RuTt1n6k5I6ZF-Xs1Kug4ajs9Fk3WKH0Po3lhGYA"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-1 bg-tertiary-container/10 dark:bg-[#3d1f0d] text-on-tertiary-fixed-variant dark:text-[#efbba0] rounded-[2px] font-label-sm text-[12px] uppercase tracking-wider">Book Club Pick</span>
+<span class="text-on-surface-variant dark:text-[#d5c3bb] font-label-sm text-[12px]">Updated 2h ago</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background dark:text-[#f4d4c1] group-hover:text-secondary dark:group-hover:text-[#efbba0] transition-colors line-clamp-2 mb-2">The Architecture of Silence: Chapter 4-6 Analysis</h3>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-[#d5c3bb] line-clamp-2">I found the author's use of negative space in these chapters fascinating, especially how it mirrors the protagonist's isolation. Did anyone else pick up on the recurring motif of empty rooms?</p>
+</div>
+<div class="flex items-center justify-between mt-stack-md pt-stack-sm border-t border-outline-variant/10 dark:border-white/10">
+<div class="flex items-center gap-stack-sm">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-background dark:border-[#24130a] overflow-hidden bg-surface-container-highest dark:bg-[#3d1f0d]">
+<img class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a thoughtful person reading a book in a sunlit room, soft warm lighting, minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6gcLqWF82vhImz18ce-Bp_KgPGEit-CxKbN5AswmanoS4IKaHzURBWMyR-OdU1BZZ4io3n_rOFeqzhDaeYEJsB0zrJiRUtxp4c4e62oZnhFsEtPuppxzabNjjH_WNIqHycSFXuIMpP0pC7SicVsZhaOb37gEoTyhSSegpgrZd8MvRzmdi1xjIrivJwu5VwCvxRRKhVVAopkHUYX9d1333LGUIIUDcKg3r1hEkNq2iISAnsxYMOWew3A"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-background dark:border-[#24130a] overflow-hidden bg-surface-container-highest dark:bg-[#3d1f0d]">
+<img class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a person wearing glasses in a library setting, soft warm lighting, minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANO8fSB0nhtKe4TopiO3qt-DohV_jiX5UbsxGvNnSyWPndoUafHrP1IlfAsvx14ORjK_oPK2Gdxp9mxavCW0TnyRJHowjAjeO9e5B5xLSrwpbt00nycW9-JiJaWqh9_fpG-O94sb6hX6nRLsu-alRMS7rfG9j2PBrWr4N_IaxTeoyEGutC285PXKl-IARos77Q-EtRJnl1OlEso8F8AfNeao4Ss3wjdBSIE1m3114VgXdvzdIZkdlAQw"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-background dark:border-[#24130a] flex items-center justify-center bg-surface-container dark:bg-[#3d1f0d] text-on-surface-variant dark:text-[#f4d4c1] font-label-sm text-[12px]">
+                                            +12
+                                        </div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant dark:text-[#d5c3bb] ml-2">Started by Eleanor V.</span>
+</div>
+<div class="flex items-center gap-1 text-secondary dark:text-[#efbba0]">
+<span class="material-symbols-outlined text-[18px]">forum</span>
+<span class="font-label-sm text-label-sm">45</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Thread Item 2 -->
+<article class="bg-surface-lowest dark:bg-[#24130a] border border-outline-variant/30 dark:border-white/5 rounded p-stack-lg hover:shadow-sm hover:border-secondary/30 dark:hover:border-[#efbba0]/30 transition-all cursor-pointer relative group">
+<div class="flex gap-stack-md">
+<div class="hidden sm:block flex-shrink-0 w-24 h-36 bg-surface-container-low dark:bg-[#1a0f08] rounded overflow-hidden shadow-[0_4px_12px_rgba(61,31,13,0.05)] dark:shadow-none border border-outline-variant/10 dark:border-white/5">
+<img class="w-full h-full object-cover" data-alt="A striking minimalist book cover design featuring a solitary leafless tree against a stark white background with elegant serif typography in deep brown, literary fiction aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABTcpXXuJK1o-BLJ5NFAkTDKBscoeZ9nN3gUAvaM_ajjlI2vaXQ8dBL3ll8hqFRVZtUYR8eW13V4D87fFhpgw6PVrOaD0H3-C3a_Jz-eRVTelrPAmgNZciiqxzJOmZMKzKxoIr-4CbY-m9umjTDfjCA0nNHwv0I9jzmM52ABVRePBglXKBnNal0DywpN8Matqf2uTDZ0h7u3ijG9bf4RThqPh5VJ-NKPmAiYIgGCaURP6OAxjwalJK0g"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-1 bg-surface-container-high dark:bg-[#3d1f0d] text-on-surface dark:text-[#f4d4c1] rounded-[2px] font-label-sm text-[12px] uppercase tracking-wider">General Discussion</span>
+<span class="text-on-surface-variant dark:text-[#d5c3bb] font-label-sm text-[12px]">Updated 5h ago</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background dark:text-[#f4d4c1] group-hover:text-secondary dark:group-hover:text-[#efbba0] transition-colors line-clamp-2 mb-2">Pacing in Modern Literary Fiction vs. Classics</h3>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-[#d5c3bb] line-clamp-2">Are modern attention spans ruining the 'slow burn' narrative? Let's discuss the differences in pacing expectations between contemporary literary fiction and 19th-century classics.</p>
+</div>
+<div class="flex items-center justify-between mt-stack-md pt-stack-sm border-t border-outline-variant/10 dark:border-white/10">
+<div class="flex items-center gap-stack-sm">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-background dark:border-[#24130a] overflow-hidden bg-surface-container-highest dark:bg-[#3d1f0d]">
+<img class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a person holding a coffee cup, warm tones, minimalist editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ9Ik_aXze2svB0gHAOcus3utTlpKDMKDgBDx6YDvcmzti0KAmGVY1hMZC8Kuqk8lxiLbHz1mZjVXC57qtVfol_ZCd-vkaDVSpL_NpRvAGIhpYGZX0u6z8lw46-AMAbIKjA9xnMBQ3l-bCLDatoR3hEseEOTy9YN0LSRJma8XTvLaduxv4HKrUshFROs6gXgFRLoCDTdYyeIvdSnlyD6TeZjfeM_lgGzvP7ipo9M6DWbtTSWvXWVHrLg"/>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant dark:text-[#d5c3bb] ml-2">Started by Marcus T.</span>
+</div>
+<div class="flex items-center gap-1 text-secondary dark:text-[#efbba0]">
+<span class="material-symbols-outlined text-[18px]">forum</span>
+<span class="font-label-sm text-label-sm">8</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Thread Item 3 (Locked Visual - Just dimming it slightly to imply context before overlay) -->
+<article class="bg-surface-lowest dark:bg-[#24130a] border border-outline-variant/30 dark:border-white/5 rounded p-stack-lg relative opacity-60">
+<div class="flex gap-stack-md">
+<div class="hidden sm:block flex-shrink-0 w-24 h-36 bg-surface-container-low dark:bg-[#1a0f08] rounded overflow-hidden shadow-[0_4px_12px_rgba(61,31,13,0.05)] dark:shadow-none border border-outline-variant/10 dark:border-white/5">
+<img class="w-full h-full object-cover" data-alt="A premium book cover featuring gold foil geometric patterns on dark brown leather-like texture, conveying a sense of exclusivity and classic literature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSgcTHEpvo2jDYTdMscvnrG98gtWFKj3EJG90Tl7vWLK5MynO1MVPSjutSXxiU9Bd42hMuUf332WbariJnTZzK1L8XoyhfPn2ogYsw5VY7Fp-veJwHxpRzTj5qBcfDm2gsgxFg5gSOZsjQp7hKNEQluOFeTGwgC-d3H3wFpRzF6kPgMP7H3Vd-ZdIqKX_RhPR-4XTM9tAYc-wTO2eiPwTQhro1iAWmpIOYhHmfmzdEhRBSQnfNCkQ47g"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-1 bg-tertiary-container/10 dark:bg-[#3d1f0d] text-on-tertiary-fixed-variant dark:text-[#efbba0] rounded-[2px] font-label-sm text-[12px] uppercase tracking-wider">Author Q&amp;A</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background dark:text-[#f4d4c1] mb-2">Exclusive AMA with Sylvia Plath Biographer</h3>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-[#d5c3bb] line-clamp-2">Join us for a live discussion regarding the newly discovered letters and what they mean for interpreting her later works.</p>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Sidebar (Columns 9-12) -->
+<aside class="lg:col-span-4 flex flex-col gap-stack-lg">
+<!-- Trending Topics Card -->
+<div class="bg-surface dark:bg-[#24130a] border border-outline-variant/20 dark:border-white/5 rounded p-stack-lg shadow-[0_4px_12px_rgba(61,31,13,0.05)] dark:shadow-none">
+<h3 class="font-headline-md text-headline-md text-on-background dark:text-[#f4d4c1] border-b border-outline-variant/10 dark:border-white/10 pb-stack-sm mb-stack-md">Trending Topics</h3>
+<ul class="space-y-stack-md">
+<li>
+<a class="block group" href="#">
+<span class="text-secondary dark:text-[#efbba0] font-label-sm text-[12px] mb-1 block">#MagicalRealism</span>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface dark:text-[#f4d4c1] group-hover:text-secondary dark:group-hover:text-[#efbba0] transition-colors">Marquez vs. Allende: Approaches to the supernatural</h4>
+</a>
+</li>
+<li>
+<a class="block group" href="#">
+<span class="text-secondary dark:text-[#efbba0] font-label-sm text-[12px] mb-1 block">#BookClub</span>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface dark:text-[#f4d4c1] group-hover:text-secondary dark:group-hover:text-[#efbba0] transition-colors">Voting for Next Month's Theme is Open!</h4>
+</a>
+</li>
+<li>
+<a class="block group" href="#">
+<span class="text-secondary dark:text-[#efbba0] font-label-sm text-[12px] mb-1 block">#ReadingHabits</span>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface dark:text-[#f4d4c1] group-hover:text-secondary dark:group-hover:text-[#efbba0] transition-colors">How do you organize your physical library?</h4>
+</a>
+</li>
+</ul>
+</div>
+<!-- Community Guidelines Snippet -->
+<div class="bg-surface-container-lowest dark:bg-[#1a0f08] border border-outline-variant/10 dark:border-white/5 rounded p-stack-lg">
+<div class="flex items-center gap-2 mb-stack-sm text-on-surface-variant dark:text-[#d5c3bb]">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<h3 class="font-label-sm text-label-sm uppercase tracking-wider">Library Rules</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-[#d5c3bb] text-[14px]">We encourage thoughtful, respectful dialogue. Disagree with ideas, not people. Please use spoiler tags when discussing plot details of recent picks.</p>
+</div>
+</aside>
+<!-- MEMBERSHIP GATE OVERLAY (Glassmorphism) -->
+<div class="absolute inset-0 z-10 flex items-center justify-center pt-32 pb-16 px-4 bg-background/40 dark:bg-[#1a0f08]/60 backdrop-blur-[12px] rounded">
+<div class="bg-white/80 dark:bg-[#24130a]/80 backdrop-blur-md border border-white/30 dark:border-white/10 rounded-xl p-8 max-w-md w-full text-center shadow-[0_8px_32px_rgba(61,31,13,0.1)] dark:shadow-none flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container-highest dark:bg-[#3d1f0d] rounded-full flex items-center justify-center mb-stack-md text-secondary dark:text-[#efbba0]">
+<span class="material-symbols-outlined text-[32px]">lock</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-background dark:text-[#f4d4c1] mb-stack-sm">Members Only Area</h2>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-[#d5c3bb] mb-stack-lg">Unlock access to our exclusive literary discussions, author Q&amp;As, and community deep-dives by becoming a PageTurners member.</p>
+<button class="w-full py-3 px-6 bg-secondary dark:bg-[#efbba0] text-on-secondary dark:text-[#2c1700] font-label-sm text-label-sm rounded hover:bg-secondary-container dark:hover:bg-[#ffdcbc] hover:text-on-secondary-container dark:hover:text-[#6b3f00] transition-colors">
+                        Join Free
+                    </button>
+<p class="mt-stack-md font-body-md text-[14px] text-on-surface-variant dark:text-[#d5c3bb]">
+                        Already a member? <a class="text-secondary dark:text-[#efbba0] font-semibold hover:underline" href="#">Log in</a>
+</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-high dark:bg-[#0c0502] w-full pt-20 pb-10 mt-section-gap border-t border-outline-variant/20 dark:border-white/10 relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container dark:via-primary-fixed to-transparent opacity-50"></div>
+    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-primary-container/10 dark:bg-primary-fixed/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-10 -left-20 w-72 h-72 bg-secondary-container/10 dark:bg-secondary-fixed/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 px-margin-safe max-w-[1200px] mx-auto relative z-10">
+        <!-- Brand & Description (Col span 5) -->
+        <div class="col-span-1 md:col-span-5 flex flex-col items-start">
+            <a href="index.html" class="flex items-center gap-3 mb-6 hover:scale-105 transition-transform duration-300">
+                <span class="material-symbols-outlined text-3xl text-primary dark:text-primary-fixed">menu_book</span>
+                <span class="font-display text-headline-sm font-bold text-on-surface dark:text-white tracking-tight">Book Haven</span>
+            </a>
+            <p class="font-body-lg text-on-surface-variant dark:text-surface-variant/90 mb-8 max-w-md leading-relaxed">
+                Elevating the art of slow reading. Join a community of literature lovers dedicated to meaningful discussions, curated selections, and shared intellectual growth.
+            </p>
+            <div class="flex gap-4">
+                <!-- Social Icons -->
+                <a href="#" class="w-10 h-10 rounded-full bg-surface-container dark:bg-transparent border border-outline-variant/30 dark:border-white/20 flex items-center justify-center text-on-surface-variant dark:text-[#fdfdf9] hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+                    <span class="material-symbols-outlined text-sm">language</span>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-surface-container dark:bg-transparent border border-outline-variant/30 dark:border-white/20 flex items-center justify-center text-on-surface-variant dark:text-[#fdfdf9] hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+                    <span class="material-symbols-outlined text-sm">alternate_email</span>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-surface-container dark:bg-transparent border border-outline-variant/30 dark:border-white/20 flex items-center justify-center text-on-surface-variant dark:text-[#fdfdf9] hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+                    <span class="material-symbols-outlined text-sm">share</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Quick Links (Col span 2) -->
+        <div class="col-span-1 md:col-span-2 md:col-start-7">
+            <h4 class="font-headline-sm text-title-md font-semibold text-on-surface dark:text-white mb-6 border-b border-outline-variant/30 dark:border-white/10 pb-2 inline-block">Explore</h4>
+            <ul class="flex flex-col space-y-4">
+                <li><a href="index.html" class="font-label-sm text-body-md text-on-surface-variant dark:text-surface-variant/80 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 h-[2px] bg-primary dark:bg-primary-fixed transition-all duration-300 group-hover:w-4"></span> Home</a></li>
+                <li><a href="about.html" class="font-label-sm text-body-md text-on-surface-variant dark:text-surface-variant/80 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 h-[2px] bg-primary dark:bg-primary-fixed transition-all duration-300 group-hover:w-4"></span> About Us</a></li>
+                <li><a href="books.html" class="font-label-sm text-body-md text-on-surface-variant dark:text-surface-variant/80 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 h-[2px] bg-primary dark:bg-primary-fixed transition-all duration-300 group-hover:w-4"></span> Our Library</a></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <!-- Legal & Newsletter (Col span 3) -->
+        <div class="col-span-1 md:col-span-3 md:col-start-10">
+            <h4 class="font-headline-sm text-title-md font-semibold text-on-surface dark:text-white mb-6 border-b border-outline-variant/30 dark:border-white/10 pb-2 inline-block">Stay Updated</h4>
+            <p class="font-body-md text-on-surface-variant dark:text-surface-variant/80 mb-4">Subscribe to our newsletter for curated reading lists and event updates.</p>
+            <div class="flex flex-col gap-2 mb-8">
+                <div class="relative group">
+                    <input type="email" placeholder="Enter your email" class="w-full bg-surface-container dark:bg-dark-surface border border-outline-variant/50 dark:border-white/20 rounded-lg px-4 py-3 font-body-md text-on-surface dark:text-white focus:outline-none focus:border-primary dark:focus:border-primary-fixed transition-colors" />
+                    <button class="absolute right-1 top-1 bottom-1 px-3 bg-primary-container dark:bg-primary-fixed text-on-primary-container dark:text-on-primary-fixed rounded-md hover:opacity-90 transition-opacity">
+                        <span class="material-symbols-outlined text-sm pt-1">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-x-6 gap-y-2">
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant/60 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Privacy</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant/60 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Terms</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant/60 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Cookies</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-16 pt-6 border-t border-outline-variant/20 dark:border-white/10 text-center relative z-10 px-margin-safe max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-body-sm text-label-md text-on-surface-variant dark:text-surface-variant/60">
+            &copy; 2026 Book Haven. All rights reserved.
+        </p>
+        <p class="font-body-sm text-label-md text-on-surface-variant dark:text-surface-variant/60 flex items-center gap-1">
+            Made with <span class="material-symbols-outlined text-xs text-error">favorite</span> by fellow readers
+        </p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const rtlToggleBtn = document.getElementById('rtl-toggle');
+        if (rtlToggleBtn) {
+            rtlToggleBtn.addEventListener('click', function() {
+                if (document.documentElement.getAttribute('dir') === 'rtl') {
+                    document.documentElement.setAttribute('dir', 'ltr');
+                } else {
+                    document.documentElement.setAttribute('dir', 'rtl');
+                }
+            });
+        }
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Mobile Menu Logic
+        const nav = document.querySelector('nav');
+        if (!nav) return;
+        
+        const hamburgerBtn = nav.querySelector('button.lg\:hidden') || nav.querySelector('.lg\:hidden');
+        const desktopMenu = nav.querySelector('.hidden.lg\:flex.space-x-gutter');
+        
+        if (hamburgerBtn && desktopMenu && !document.getElementById('mobile-menu-container')) {
+            // Create mobile menu container
+            const mobileMenu = document.createElement('div');
+            mobileMenu.id = 'mobile-menu-container';
+            mobileMenu.className = 'hidden lg:hidden bg-background dark:bg-[#1a0f08] absolute top-[72px] left-0 w-full border-b border-outline-variant/10 dark:border-outline-variant/5 shadow-lg flex-col px-8 py-6 space-y-4';
+            
+            // Clone links
+            const links = desktopMenu.cloneNode(true);
+            links.className = 'flex flex-col space-y-6';
+            
+            // Fix text size for mobile
+            const anchorTags = links.querySelectorAll('a');
+            anchorTags.forEach(a => {
+                a.classList.add('text-base');
+            });
+            
+            // Toggles Container
+            const togglesContainer = document.createElement('div');
+            togglesContainer.className = 'flex justify-center items-center space-x-8 pt-4 border-t border-outline-variant/10 dark:border-white/10 w-full';
+            
+            // Theme Toggle
+            const themeBtn = document.createElement('button');
+            themeBtn.className = 'text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors flex items-center space-x-2';
+            themeBtn.innerHTML = '<span class="material-symbols-outlined dark:hidden">dark_mode</span><span class="material-symbols-outlined hidden dark:block">light_mode</span><span class="font-label-sm font-bold">Theme</span>';
+            themeBtn.addEventListener('click', function() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.theme = 'light';
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.theme = 'dark';
+                }
+            });
+            
+            // RTL Toggle
+            const rtlBtnMobile = document.createElement('button');
+            rtlBtnMobile.className = 'text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors font-label-sm font-bold flex items-center';
+            rtlBtnMobile.innerText = 'RTL';
+            rtlBtnMobile.addEventListener('click', function() {
+                if (document.documentElement.getAttribute('dir') === 'rtl') {
+                    document.documentElement.setAttribute('dir', 'ltr');
+                } else {
+                    document.documentElement.setAttribute('dir', 'rtl');
+                }
+            });
+            
+            togglesContainer.appendChild(themeBtn);
+            togglesContainer.appendChild(rtlBtnMobile);
+
+            // Add Login and Join Club to mobile menu
+            const loginBtn = document.createElement('a');
+            loginBtn.href = 'login.html';
+            loginBtn.className = 'text-secondary dark:text-secondary-fixed-dim font-label-sm font-bold pt-4 block w-full text-center text-base';
+            loginBtn.innerText = 'Login';
+            
+            const joinBtn = document.createElement('a');
+            joinBtn.href = 'register.html';
+            joinBtn.className = 'bg-primary-container dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed px-4 py-3 rounded font-label-sm font-bold text-center block w-full mt-4 text-base';
+            joinBtn.innerText = 'Join Club';
+            
+            mobileMenu.appendChild(links);
+            mobileMenu.appendChild(togglesContainer);
+            mobileMenu.appendChild(loginBtn);
+            mobileMenu.appendChild(joinBtn);
+            
+            nav.appendChild(mobileMenu);
+            
+            // Toggle Logic
+            hamburgerBtn.addEventListener('click', function() {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                const icon = hamburgerBtn.querySelector('span');
+                
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex');
+                    if(icon) icon.textContent = 'close';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    if(icon) icon.textContent = 'menu';
+                }
+            });
+        }
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const themeBtns = document.querySelectorAll('#theme-toggle, [onclick="toggleTheme()"], .theme-toggle-btn');
+        themeBtns.forEach(btn => {
+            btn.removeAttribute('onclick'); // in case it has one
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        });
+    });
+</script>
+
+</body></html>

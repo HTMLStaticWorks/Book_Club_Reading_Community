@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Book Haven - Literary Heritage</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#683d00",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#623e2a",
+                    "tertiary-fixed": "#bdefbb",
+                    "on-primary-fixed": "#2f1404",
+                    "secondary-container": "#ffa535",
+                    "outline-variant": "#d5c3bb",
+                    "inverse-surface": "#3f2c1f",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#fff8f5",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#efbba0",
+                    "surface-container": "#ffeade",
+                    "tertiary-fixed-dim": "#a1d3a1",
+                    "inverse-on-surface": "#ffede4",
+                    "on-tertiary-fixed-variant": "#24502a",
+                    "on-tertiary-fixed": "#002107",
+                    "tertiary": "#001604",
+                    "on-secondary-container": "#6b3f00",
+                    "tertiary-container": "#002e0c",
+                    "surface-container-highest": "#fcdcc9",
+                    "on-secondary-fixed": "#2c1700",
+                    "on-surface": "#28180c",
+                    "primary-fixed": "#ffdbca",
+                    "secondary": "#895100",
+                    "surface-bright": "#fff8f5",
+                    "surface-container-high": "#ffe3d2",
+                    "surface-variant": "#fcdcc9",
+                    "surface-container-low": "#fff1ea",
+                    "secondary-fixed-dim": "#ffb86b",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#51443e",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ffdcbc",
+                    "primary": "#240b00",
+                    "outline": "#83746d",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#28180c",
+                    "surface-tint": "#7d553f",
+                    "background": "#fff8f5",
+                    "on-primary-container": "#b2846b",
+                    "inverse-primary": "#efbba0",
+                    "primary-container": "#3d1f0d",
+                    "surface-dim": "#f4d4c1",
+                    "on-tertiary-container": "#6a996b",
+                    "dark-bg": "#1a0f08",
+                    "dark-surface": "#2d1b11",
+                    "dark-text": "#f5eadc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-md": "16px",
+                    "section-gap": "96px",
+                    "stack-sm": "8px",
+                    "margin-safe": "32px",
+                    "stack-lg": "24px",
+                    "section-gap-mobile": "64px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "body-md": ["Literata"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "body-lg": ["Literata"],
+                    "display": ["Playfair Display"],
+                    "label-sm": ["Literata"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script>
+        // Check for saved theme preference, otherwise use system preference
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+    </script>
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body class="bg-background dark:bg-dark-bg text-on-background dark:text-dark-text antialiased font-body-md overflow-x-hidden transition-colors duration-300">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full h-[72px] z-50 bg-background/80 dark:bg-dark-bg/80 backdrop-blur-md border-b border-outline-variant/10 shadow-sm dark:shadow-none transition-colors duration-300">
+<div class="flex justify-between items-center h-full px-margin-safe max-w-[1200px] mx-auto">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md font-bold text-on-background dark:text-dark-text flex items-center gap-2 hover:scale-95 duration-150 ease-in-out" href="index.html">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+                Book Haven
+            </a>
+<!-- Navigation Links (Desktop) -->
+<nav class="bg-background/80 dark:bg-[#1a0f08]/90 backdrop-blur-md border-b border-outline-variant/10 dark:border-outline-variant/5 shadow-sm dark:shadow-none fixed top-0 w-full h-[72px] z-50">
+<div class="flex justify-between items-center h-full px-margin-safe max-w-[1200px] mx-auto">
+<a class="font-headline-md text-headline-md text-on-background dark:text-primary-fixed dark:-fixed-dim " href="index.html">Book Haven</a>
+<div class="hidden lg:flex space-x-gutter">
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim dark:-fixed-dim font-label-sm text-label-sm hover:text-on-surface-variant dark:hover:text-secondary-fixed-dim transition-all dark:-fixed-dim " href="index.html">Home</a>
+<a class="text-secondary dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all font-bold border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1" href="home2.html">Home 2</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="about.html">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="books.html">Books</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="discussions.html">Discussions</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="blog.html">Blog</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="dashboard.html">Dashboard</a>
+</div>
+<div class="flex items-center space-x-stack-md">
+<button class="hidden lg:block text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" id="theme-toggle">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+<button class="hidden lg:block text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors font-label-sm font-bold" id="rtl-toggle" title="Toggle RTL">RTL</button>
+<button onclick="window.location.href=\'login.html\'" class="hidden lg:block text-secondary dark:text-secondary-fixed-dim font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all">Login</button>
+<button onclick="window.location.href=\'register.html\'" class="hidden lg:block bg-primary-container dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed px-4 py-2 rounded font-label-sm text-label-sm hover:bg-secondary-container dark:hover:bg-secondary-fixed transition-all">Join Club</button>
+<button class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors lg:hidden">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-stack-md">
+<button onclick="window.location.href=\'login.html\'" class="hidden lg:block font-label-sm text-label-sm text-on-surface-variant dark:text-dark-text/80 hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors hover:scale-95 duration-150 ease-in-out">Login</button>
+<button onclick="window.location.href=\'register.html\'" class="hidden lg:block bg-primary-container dark:bg-surface-tint text-on-primary px-4 py-2 rounded font-label-sm text-label-sm hover:bg-surface-tint dark:hover:bg-primary-container transition-colors hover:scale-95 duration-150 ease-in-out">Join Club</button>
+<!-- Icon Actions -->
+<button class="text-on-surface-variant dark:text-dark-text hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors hover:scale-95 duration-150 ease-in-out" onclick="toggleTheme()">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+<button class="md:hidden text-on-surface-variant dark:text-dark-text hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors hover:scale-95 duration-150 ease-in-out">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-[72px]">
+<!-- Hero Section (Split Layout) -->
+<section class="max-w-[1200px] mx-auto px-margin-safe py-section-gap-mobile md:py-section-gap grid grid-cols-1 md:grid-cols-2 gap-gutter items-center min-h-[819px]">
+<div class="space-y-stack-lg order-2 md:order-1">
+<div class="inline-flex items-center gap-2 bg-surface-container dark:bg-dark-surface px-3 py-1 rounded-full border border-outline-variant/30 dark:border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary dark:text-secondary-fixed-dim text-sm">auto_awesome</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant dark:text-dark-text/80">The Premium Literary Community</span>
+</div>
+<h1 class="font-display text-display text-primary-container dark:text-dark-text leading-tight">Where Every Page Leads to Connection.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant dark:text-dark-text/80 max-w-lg">A premium community for those who believe in the art of slow reading. Discover curated picks and engage in deep literary discourse.</p>
+<div class="flex flex-wrap items-center gap-stack-md pt-stack-sm">
+<button class="bg-primary-container dark:bg-surface-tint text-on-primary px-8 py-3 rounded font-label-sm text-label-sm hover:bg-surface-tint dark:hover:bg-primary-container transition-colors shadow-sm">Explore the Library</button>
+<button class="px-8 py-3 rounded font-label-sm text-label-sm text-primary-container dark:text-dark-text border border-outline-variant dark:border-outline-variant/30 hover:bg-surface-container dark:hover:bg-dark-surface transition-colors">View Membership</button>
+</div>
+<div class="pt-stack-lg flex items-center gap-stack-sm text-on-surface-variant dark:text-dark-text/80">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-background dark:border-dark-bg object-cover" data-alt="A small circular profile picture of a young woman with glasses reading a book in a cozy library setting. Soft warm lighting. Cinematic style. Deep walnut and amber tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNScdBXex6kYpBgbEjX2lr0CgFWgRL3CvUdCq2C5sY3WhWpNoCFTOfvQV28aBT9kWaDOVAda1awyxx6lbbo0puU1bVh-Y_LkVikT3m7nErBX_EV8Vam-tmoJXIMZ2dHWWyBoP3jmGbtQ9BR9yVeB1HxLyi4U4Ct_yHpAbZJb_StkOKaEwZvzCCZKxmFqd8lfUXBxu4Uxzre01d7hMkwNUhNI-jfkJE5nW7TFL12DBlvzuHPWVGsmwxdA"/>
+<img class="w-8 h-8 rounded-full border-2 border-background dark:border-dark-bg object-cover" data-alt="A small circular profile picture of a man holding a steaming cup of coffee next to a stack of vintage books. Warm moody lighting. Premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKy6N0pQ9QsaJTcq_1si7Bk0KR4dQyDx9kM2NR0L2zgLjtG89x6t_80lAe-z66Rzlsr8ZMGNryNIlIm6Jb2XKsfYGVSUSpTMs-Q3gSxju3nQggix0JyANUpkjA8MHX-_P_oIEBBZYg9d1JUZWkPvonibV0m2HQ7oN9y3gu40UowAL7lrjteSmnQYBb3skdcwolnDuEAl4cAmRCwK-r1hqxfPOf8HQkmefiU8gmKrc06TZZioPT9IAupA"/>
+<img class="w-8 h-8 rounded-full border-2 border-background dark:border-dark-bg object-cover" data-alt="A small circular profile picture of a person reading in a sunlit window seat. Soft natural light, high-end editorial feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV94TjSdNSbne23cqQIYeChRBtAua6FOXwFGjV2yirALYm0n4z7FdvaQes2tisjrnmu1KFmoByaXPX3hjhu2jgSZijSsd1MTPH2V4wtzyozon52pbc6s9vax8Yah3QPMa5p5szyBimt2OGNnGG5hN4zR6g63f_KG_sSz1P4naXcgXAAjvWKbBB7zpZCgvg_mf25ujdKWgNdG5izoXfRKcM9fQlzCOFqmMCHShes_3sB-60UZwj78GPhA"/>
+</div>
+<span class="font-label-sm text-label-sm">Join 5,000+ avid readers</span>
+</div>
+</div>
+<div class="relative order-1 md:order-2 h-[500px] md:h-[650px] w-full">
+<div class="absolute inset-0 bg-surface-container-high dark:bg-dark-surface rounded-xl -rotate-2 transform transition-transform hover:rotate-0 duration-500 border border-outline-variant/20 dark:border-outline-variant/10 shadow-lg"></div>
+<img class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-md border border-outline-variant/10 dark:border-outline-variant/5 z-10 transition-transform duration-500 hover:scale-[1.02]" data-alt="A beautifully composed photograph of a luxurious, cozy reading nook. A worn leather armchair sits next to a small wooden table with a stack of antique books and a steaming cup of tea. Soft, golden hour sunlight streams through a window, illuminating floating dust motes. The color palette emphasizes deep walnut browns, warm amber light, and touches of sage green in a nearby potted plant. Highly detailed, premium editorial photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc_TUjDn-fFqwTclt0tSkgLp9XVE77yevQejY4algH4MqLFZbmenXPorYNK0mvoCkkiwnlUw1ufFZIQOTkXmvRa5Nqv5qt_Fu5PkJT1NWyFKEWN0t5BSdPbx_AFFnBYmeu-F0PKbR0pwq_n0WffN3NNFybaBsJvHKMCAKvuJ_ARbiVBqGh8EctX1gMHInui7t0bVhkIhnZ2Up0lTWsE2cxUMhU_ei_3z1O9lqADTSUMkIX2FhBJ0NwjQ"/>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<!-- Reading Genres Section -->
+<section class="max-w-[1200px] mx-auto px-margin-safe py-section-gap reveal-on-scroll opacity-0 transition-all duration-500">
+<div class="flex justify-between items-end mb-stack-lg">
+<div>
+<h2 class="font-display text-headline-lg text-primary-container dark:text-dark-text">Reading Genres We Love</h2>
+<p class="font-body-md text-on-surface-variant dark:text-dark-text/80 mt-2">Explore our curated collections across diverse literary landscapes.</p>
+</div>
+<div class="hidden md:block w-24 h-24 opacity-20 dark:opacity-10">
+<img alt="Genre visual" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7DMJjJLiuB7Iy3ysz7zqHV0fgJ4DEHbzENMZP-Gqf8-GgzYL-cAis5nd-UhvzLnXtVsolwjmPtXcOKVzZ0xs3CkmQ9cGr-qCfbYL8lkiPFZWjEZzDRoBszo-EoViv-uxNBI910voQDWNwAxKhCqmww1qMBth62eLLe15QK2-vjZUbV6LUJTe1Rv-gcED2SowQkiTwwjCNqSxOgb5pEBJydreJ7ZKcU3OciTsddJkjtag3HVfTwUd_Ow"/>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="bg-surface-container-low dark:bg-dark-surface p-8 rounded-xl border border-outline-variant/20 dark:border-outline-variant/10 hover:-translate-y-2 transition-transform duration-300 cursor-pointer group">
+<span class="material-symbols-outlined text-secondary dark:text-secondary-fixed-dim mb-4 block">auto_stories</span>
+<h3 class="font-headline-md text-headline-md group-hover:text-secondary dark:group-hover:text-secondary-fixed-dim transition-colors dark:text-dark-text">Fiction</h3>
+</div>
+<div class="bg-surface-container-low dark:bg-dark-surface p-8 rounded-xl border border-outline-variant/20 dark:border-outline-variant/10 hover:-translate-y-2 transition-transform duration-300 cursor-pointer group">
+<span class="material-symbols-outlined text-secondary dark:text-secondary-fixed-dim mb-4 block">history_edu</span>
+<h3 class="font-headline-md text-headline-md group-hover:text-secondary dark:group-hover:text-secondary-fixed-dim transition-colors dark:text-dark-text">Non-Fiction</h3>
+</div>
+<div class="bg-surface-container-low dark:bg-dark-surface p-8 rounded-xl border border-outline-variant/20 dark:border-outline-variant/10 hover:-translate-y-2 transition-transform duration-300 cursor-pointer group">
+<span class="material-symbols-outlined text-secondary dark:text-secondary-fixed-dim mb-4 block">search</span>
+<h3 class="font-headline-md text-headline-md group-hover:text-secondary dark:group-hover:text-secondary-fixed-dim transition-colors dark:text-dark-text">Mystery</h3>
+</div>
+<div class="bg-surface-container-low dark:bg-dark-surface p-8 rounded-xl border border-outline-variant/20 dark:border-outline-variant/10 hover:-translate-y-2 transition-transform duration-300 cursor-pointer group">
+<span class="material-symbols-outlined text-secondary dark:text-secondary-fixed-dim mb-4 block">castle</span>
+<h3 class="font-headline-md text-headline-md group-hover:text-secondary dark:group-hover:text-secondary-fixed-dim transition-colors dark:text-dark-text">Fantasy</h3>
+</div>
+</div>
+</section>
+<!-- Community Stats Bar -->
+<section class="bg-primary-container dark:bg-surface-tint text-on-primary py-16 reveal-on-scroll opacity-0 transition-all duration-500">
+<div class="max-w-[1200px] mx-auto px-margin-safe grid grid-cols-1 md:grid-cols-3 gap-gutter text-center">
+<div class="space-y-2">
+<div class="font-display text-display text-primary-fixed">1,200+</div>
+<div class="font-label-sm uppercase tracking-widest opacity-80">Members</div>
+</div>
+<div class="space-y-2">
+<div class="font-display text-display text-primary-fixed">48</div>
+<div class="font-label-sm uppercase tracking-widest opacity-80">Books Read</div>
+</div>
+<div class="space-y-2">
+<div class="font-display text-display text-primary-fixed">36</div>
+<div class="font-label-sm uppercase tracking-widest opacity-80">Meet-ups</div>
+</div>
+</div>
+</section>
+<!-- Member Testimonials -->
+<section class="relative py-section-gap overflow-hidden reveal-on-scroll opacity-0 transition-all duration-500">
+<div class="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none">
+<img alt="Background mood" class="w-full h-full object-cover dark:invert dark:hue-rotate-180" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuxjoO3TY0hjCL6hWPHxqGRcQbNsAGZk5F7yik0MLmAuu_9kg1L2MM76DB7G8vpg0MzDMLc0Lm71VZICfY3F-iXVBF6nUXj9Z7ZbqMOFeB6eROAdV7pIEzyWPPEsws2ggqQfUCPvJRoew8-gdf1KVm51t3Ll4T5hDGQOiu4cJ94AOuYT1oPCoU4EE6wyNP6zK33I_VA85NM0TMLaOsmMUS4_qXMd_oMBod6ADyNXUj4ywKu6x1tqL67A"/>
+</div>
+<div class="max-w-[1200px] mx-auto px-margin-safe relative z-10">
+<div class="text-center mb-12">
+<h2 class="font-display text-headline-lg text-primary-container dark:text-dark-text">Voices from the Library</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container dark:bg-dark-surface p-8 rounded-xl relative border dark:border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary-container absolute -top-4 -left-2 text-4xl animate-bounce" style="animation-duration: 3s;">format_quote</span>
+<p class="font-body-lg italic mb-6 dark:text-dark-text/90">"Finding this club was like finding a second home. The discussions are deep and the community is so welcoming."</p>
+<div class="flex items-center gap-4">
+<img src="eleanor.png" alt="Eleanor R." class="w-12 h-12 rounded-full object-cover border-2 border-outline-variant/30">
+<div>
+<div class="font-bold dark:text-dark-text">Eleanor R.</div>
+<div class="text-sm opacity-70 dark:text-dark-text/70">Member since 2022</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container dark:bg-dark-surface p-8 rounded-xl relative border dark:border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary-container absolute -top-4 -left-2 text-4xl animate-bounce" style="animation-duration: 3.5s;">format_quote</span>
+<p class="font-body-lg italic mb-6 dark:text-dark-text/90">"The curated picks have introduced me to authors I never would have found on my own. Truly a premium experience."</p>
+<div class="flex items-center gap-4">
+<img src="julian.png" alt="Julian M." class="w-12 h-12 rounded-full object-cover border-2 border-outline-variant/30">
+<div>
+<div class="font-bold dark:text-dark-text">Julian M.</div>
+<div class="text-sm opacity-70 dark:text-dark-text/70">Member since 2023</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container dark:bg-dark-surface p-8 rounded-xl relative border dark:border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary-container absolute -top-4 -left-2 text-4xl animate-bounce" style="animation-duration: 4s;">format_quote</span>
+<p class="font-body-lg italic mb-6 dark:text-dark-text/90">"I love the slow reading philosophy. It's a necessary escape from the fast-paced digital world we live in."</p>
+<div class="flex items-center gap-4">
+<img src="sarah.png" alt="Sarah L." class="w-12 h-12 rounded-full object-cover border-2 border-outline-variant/30">
+<div>
+<div class="font-bold dark:text-dark-text">Sarah L.</div>
+<div class="text-sm opacity-70 dark:text-dark-text/70">Member since 2021</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+      const observerOptions = {
+        threshold: 0.1
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0', 'translate-y-10');
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+    
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+        el.classList.add('translate-y-10');
+        observer.observe(el);
+      });
+  });
+</script><!-- Curated Collections Section -->
+<section class="relative py-section-gap overflow-hidden reveal-on-scroll opacity-0 transition-all duration-500 bg-primary-container dark:bg-surface-tint text-on-primary">
+<div class="absolute inset-0 opacity-40 dark:opacity-20">
+<img alt="Curated Collections Background" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFnS2zYlYlMRQavo6wwMQYa_k02gQ7F24VuO6GClJ85tIdxjgLccobyeEs0FEkzHUwpSTJC_ARonPzg3HcS9FFeaayQcHGa_sHglDCjgJMO04MJO57ZB6o5Cf01h93NKwOpZlTHvNn9Y-PEKT7xLcUz3E8YGDOKrNl8EEpGG_4Wod1tiHGiKlJI7rr6Wm8bPX2PuVHxwGi1E2OHMyqEzRm2cMTHeNp3bHkZg36TKNQiz_q1s3dclkxwQ"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container dark:from-surface-tint via-primary-container/80 dark:via-surface-tint/80 to-transparent"></div>
+<div class="max-w-[1200px] mx-auto px-margin-safe relative z-10 grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="space-y-stack-lg">
+<h2 class="font-display text-display text-primary-fixed dark:text-dark-text">Curated Collections</h2>
+<p class="font-body-lg text-primary-fixed-dim dark:text-dark-text/80 max-w-lg">Explore our hand-picked selections of classic and contemporary literature, curated monthly to challenge and inspire.</p>
+<button class="bg-primary-fixed dark:bg-dark-bg text-on-primary-fixed dark:text-dark-text px-8 py-3 rounded font-label-sm text-label-sm hover:bg-primary-fixed-dim dark:hover:bg-dark-surface transition-colors shadow-md border dark:border-outline-variant/30">View Collections</button>
+</div>
+</div>
+</section>
+<!-- Member Spotlight Section -->
+<section class="max-w-[1200px] mx-auto px-margin-safe py-section-gap reveal-on-scroll opacity-0 transition-all duration-500">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="relative h-[500px] md:h-[600px] order-2 md:order-1">
+<div class="absolute inset-0 bg-surface-container-high dark:bg-dark-surface rounded-xl rotate-2 transform border border-outline-variant/20 dark:border-outline-variant/10 shadow-lg"></div>
+<img alt="Arthur V. Portrait" class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-md border border-outline-variant/10 dark:border-outline-variant/5 z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0NI3rxyexorBOiRoXJAp2M5cV-OLbvkkdOgSYRqrS7gNLwUpM2C6gmcWrvJak6qmwjUnkdsqg9VXkGB20WmHQxaP34-jeNgC6HFnXnKwdYc4F21dEuoWWgbT654j8uDkvhVDUuigEfov9FjxZxYVdgolSyASVoj0xVdbfiuGLGzSP5zuQyTT80by2eYib1zpY9vsfCRux4-387nQkfMaQ5KYwdl6YkuR3sdMHxlbUWY8W0AhGg9HbKg"/>
+</div>
+<div class="space-y-stack-lg order-1 md:order-2">
+<div class="inline-flex items-center gap-2 bg-surface-container dark:bg-dark-surface px-3 py-1 rounded-full border border-outline-variant/30 dark:border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary dark:text-secondary-fixed-dim text-sm">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant dark:text-dark-text/80">Member Spotlight</span>
+</div>
+<h2 class="font-display text-display text-primary-container dark:text-dark-text">Arthur V.</h2>
+<p class="font-body-lg text-on-surface-variant dark:text-dark-text/80">Arthur has been a member of PageTurners since our founding. He shares his lifelong love for the classics and how deep reading has shaped his perspective on time and history.</p>
+<div class="bg-surface-container-low dark:bg-dark-surface p-8 rounded-xl border-l-4 border-secondary dark:border-secondary-fixed-dim italic">
+<p class="font-body-lg text-on-surface dark:text-dark-text">"In a world of fleeting content, a book demands patience, and rewards it with perspective."</p>
+</div>
+</div>
+</div>
+</section><footer class="bg-surface-container-high dark:bg-[#0c0502] w-full pt-20 pb-10 mt-section-gap border-t border-outline-variant/20 dark:border-white/10 relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container dark:via-primary-fixed to-transparent opacity-50"></div>
+    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-primary-container/10 dark:bg-primary-fixed/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-10 -left-20 w-72 h-72 bg-secondary-container/10 dark:bg-secondary-fixed/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 px-margin-safe max-w-[1200px] mx-auto relative z-10">
+        <!-- Brand & Description (Col span 5) -->
+        <div class="col-span-1 md:col-span-5 flex flex-col items-start">
+            <a href="index.html" class="flex items-center gap-3 mb-6 hover:scale-105 transition-transform duration-300">
+                <span class="material-symbols-outlined text-3xl text-primary dark:text-primary-fixed">menu_book</span>
+                <span class="font-display text-headline-sm font-bold text-on-surface dark:text-white tracking-tight">Book Haven</span>
+            </a>
+            <p class="font-body-lg text-on-surface-variant dark:text-surface-variant/90 mb-8 max-w-md leading-relaxed">
+                Elevating the art of slow reading. Join a community of literature lovers dedicated to meaningful discussions, curated selections, and shared intellectual growth.
+            </p>
+            <div class="flex gap-4">
+                <!-- Social Icons -->
+                <a href="#" class="w-10 h-10 rounded-full bg-surface-container dark:bg-transparent border border-outline-variant/30 dark:border-white/20 flex items-center justify-center text-on-surface-variant dark:text-[#fdfdf9] hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+                    <span class="material-symbols-outlined text-sm">language</span>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-surface-container dark:bg-transparent border border-outline-variant/30 dark:border-white/20 flex items-center justify-center text-on-surface-variant dark:text-[#fdfdf9] hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+                    <span class="material-symbols-outlined text-sm">alternate_email</span>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-surface-container dark:bg-transparent border border-outline-variant/30 dark:border-white/20 flex items-center justify-center text-on-surface-variant dark:text-[#fdfdf9] hover:bg-primary-container hover:text-on-primary-container dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+                    <span class="material-symbols-outlined text-sm">share</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Quick Links (Col span 2) -->
+        <div class="col-span-1 md:col-span-2 md:col-start-7">
+            <h4 class="font-headline-sm text-title-md font-semibold text-on-surface dark:text-white mb-6 border-b border-outline-variant/30 dark:border-white/10 pb-2 inline-block">Explore</h4>
+            <ul class="flex flex-col space-y-4">
+                <li><a href="index.html" class="font-label-sm text-body-md text-on-surface-variant dark:text-surface-variant/80 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 h-[2px] bg-primary dark:bg-primary-fixed transition-all duration-300 group-hover:w-4"></span> Home</a></li>
+                <li><a href="about.html" class="font-label-sm text-body-md text-on-surface-variant dark:text-surface-variant/80 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 h-[2px] bg-primary dark:bg-primary-fixed transition-all duration-300 group-hover:w-4"></span> About Us</a></li>
+                <li><a href="books.html" class="font-label-sm text-body-md text-on-surface-variant dark:text-surface-variant/80 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 h-[2px] bg-primary dark:bg-primary-fixed transition-all duration-300 group-hover:w-4"></span> Our Library</a></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <!-- Legal & Newsletter (Col span 3) -->
+        <div class="col-span-1 md:col-span-3 md:col-start-10">
+            <h4 class="font-headline-sm text-title-md font-semibold text-on-surface dark:text-white mb-6 border-b border-outline-variant/30 dark:border-white/10 pb-2 inline-block">Stay Updated</h4>
+            <p class="font-body-md text-on-surface-variant dark:text-surface-variant/80 mb-4">Subscribe to our newsletter for curated reading lists and event updates.</p>
+            <div class="flex flex-col gap-2 mb-8">
+                <div class="relative group">
+                    <input type="email" placeholder="Enter your email" class="w-full bg-surface-container dark:bg-dark-surface border border-outline-variant/50 dark:border-white/20 rounded-lg px-4 py-3 font-body-md text-on-surface dark:text-white focus:outline-none focus:border-primary dark:focus:border-primary-fixed transition-colors" />
+                    <button class="absolute right-1 top-1 bottom-1 px-3 bg-primary-container dark:bg-primary-fixed text-on-primary-container dark:text-on-primary-fixed rounded-md hover:opacity-90 transition-opacity">
+                        <span class="material-symbols-outlined text-sm pt-1">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-x-6 gap-y-2">
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant/60 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Privacy</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant/60 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Terms</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant/60 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Cookies</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-16 pt-6 border-t border-outline-variant/20 dark:border-white/10 text-center relative z-10 px-margin-safe max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-body-sm text-label-md text-on-surface-variant dark:text-surface-variant/60">
+            &copy; 2026 Book Haven. All rights reserved.
+        </p>
+        <p class="font-body-sm text-label-md text-on-surface-variant dark:text-surface-variant/60 flex items-center gap-1">
+            Made with <span class="material-symbols-outlined text-xs text-error">favorite</span> by fellow readers
+        </p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const rtlToggleBtn = document.getElementById('rtl-toggle');
+        if (rtlToggleBtn) {
+            rtlToggleBtn.addEventListener('click', function() {
+                if (document.documentElement.getAttribute('dir') === 'rtl') {
+                    document.documentElement.setAttribute('dir', 'ltr');
+                } else {
+                    document.documentElement.setAttribute('dir', 'rtl');
+                }
+            });
+        }
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Mobile Menu Logic
+        const nav = document.querySelector('nav');
+        if (!nav) return;
+        
+        const hamburgerBtn = nav.querySelector('button.lg\:hidden') || nav.querySelector('.lg\:hidden');
+        const desktopMenu = nav.querySelector('.hidden.lg\:flex.space-x-gutter');
+        
+        if (hamburgerBtn && desktopMenu && !document.getElementById('mobile-menu-container')) {
+            // Create mobile menu container
+            const mobileMenu = document.createElement('div');
+            mobileMenu.id = 'mobile-menu-container';
+            mobileMenu.className = 'hidden lg:hidden bg-background dark:bg-[#1a0f08] absolute top-[72px] left-0 w-full border-b border-outline-variant/10 dark:border-outline-variant/5 shadow-lg flex-col px-8 py-6 space-y-4';
+            
+            // Clone links
+            const links = desktopMenu.cloneNode(true);
+            links.className = 'flex flex-col space-y-6';
+            
+            // Fix text size for mobile
+            const anchorTags = links.querySelectorAll('a');
+            anchorTags.forEach(a => {
+                a.classList.add('text-base');
+            });
+            
+            // Toggles Container
+            const togglesContainer = document.createElement('div');
+            togglesContainer.className = 'flex justify-center items-center space-x-8 pt-4 border-t border-outline-variant/10 dark:border-white/10 w-full';
+            
+            // Theme Toggle
+            const themeBtn = document.createElement('button');
+            themeBtn.className = 'text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors flex items-center space-x-2';
+            themeBtn.innerHTML = '<span class="material-symbols-outlined dark:hidden">dark_mode</span><span class="material-symbols-outlined hidden dark:block">light_mode</span><span class="font-label-sm font-bold">Theme</span>';
+            themeBtn.addEventListener('click', function() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.theme = 'light';
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.theme = 'dark';
+                }
+            });
+            
+            // RTL Toggle
+            const rtlBtnMobile = document.createElement('button');
+            rtlBtnMobile.className = 'text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors font-label-sm font-bold flex items-center';
+            rtlBtnMobile.innerText = 'RTL';
+            rtlBtnMobile.addEventListener('click', function() {
+                if (document.documentElement.getAttribute('dir') === 'rtl') {
+                    document.documentElement.setAttribute('dir', 'ltr');
+                } else {
+                    document.documentElement.setAttribute('dir', 'rtl');
+                }
+            });
+            
+            togglesContainer.appendChild(themeBtn);
+            togglesContainer.appendChild(rtlBtnMobile);
+
+            // Add Login and Join Club to mobile menu
+            const loginBtn = document.createElement('a');
+            loginBtn.href = 'login.html';
+            loginBtn.className = 'text-secondary dark:text-secondary-fixed-dim font-label-sm font-bold pt-4 block w-full text-center text-base';
+            loginBtn.innerText = 'Login';
+            
+            const joinBtn = document.createElement('a');
+            joinBtn.href = 'register.html';
+            joinBtn.className = 'bg-primary-container dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed px-4 py-3 rounded font-label-sm font-bold text-center block w-full mt-4 text-base';
+            joinBtn.innerText = 'Join Club';
+            
+            mobileMenu.appendChild(links);
+            mobileMenu.appendChild(togglesContainer);
+            mobileMenu.appendChild(loginBtn);
+            mobileMenu.appendChild(joinBtn);
+            
+            nav.appendChild(mobileMenu);
+            
+            // Toggle Logic
+            hamburgerBtn.addEventListener('click', function() {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                const icon = hamburgerBtn.querySelector('span');
+                
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex');
+                    if(icon) icon.textContent = 'close';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    if(icon) icon.textContent = 'menu';
+                }
+            });
+        }
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const themeBtns = document.querySelectorAll('#theme-toggle, [onclick="toggleTheme()"], .theme-toggle-btn');
+        themeBtns.forEach(btn => {
+            btn.removeAttribute('onclick'); // in case it has one
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        });
+    });
+</script>
+
+</body></html>
