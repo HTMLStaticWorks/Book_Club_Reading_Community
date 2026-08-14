@@ -397,8 +397,7 @@
         document.querySelectorAll('.scroll-animate').forEach((el) => {
             observer.observe(el);
         });
-
-        
+    });
 </script>
 
 <script>
@@ -423,8 +422,8 @@
         const nav = document.querySelector('nav');
         if (!nav) return;
         
-        const hamburgerBtn = nav.querySelector('button.lg\:hidden') || nav.querySelector('.lg\:hidden');
-        const desktopMenu = nav.querySelector('.hidden.lg\:flex.space-x-gutter');
+        const hamburgerBtn = nav.querySelector('button.lg\\\\:hidden') || nav.querySelector('.lg\:hidden');
+        const desktopMenu = nav.querySelector('.hidden.lg\\\\:flex.space-x-gutter');
         
         if (hamburgerBtn && desktopMenu && !document.getElementById('mobile-menu-container')) {
             // Create mobile menu container

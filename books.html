@@ -3,7 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Dashboard - Book Haven</title>
+<title>Our Library - Book Haven</title>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -221,206 +221,330 @@
 </div>
 </div>
 </nav>
-<div class="flex-1 flex pt-[72px] max-w-[1200px] mx-auto w-full">
-<!-- Sidebar -->
-<aside class="fixed md:static inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out w-64 bg-surface-container-lowest dark:bg-[#28180c] md:bg-transparent md:dark:bg-transparent z-40 pt-24 md:pt-margin-safe px-margin-safe border-r border-outline-variant/20 dark:border-outline-variant/10 md:border-transparent md:block flex flex-col gap-stack-md h-full md:h-auto overflow-y-auto" id="sidebar">
-<nav class="flex flex-col gap-stack-sm">
-<a class="flex items-center gap-3 p-3 rounded-lg bg-surface-container dark:bg-[#3d1f0d] text-secondary dark:text-secondary-fixed-dim font-label-sm text-label-sm transition-all shadow-sm" href="#">
-<span class="material-symbols-outlined" data-icon="book" style="font-variation-settings: 'FILL' 1;">book</span>
-                    My Books
-                </a>
-<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant dark:text-[#fcdcc9] hover:bg-surface-container-low dark:hover:bg-[#3d1f0d]/50 transition-all font-label-sm text-label-sm" href="#">
-<span class="material-symbols-outlined" data-icon="forum">forum</span>
-                    Discussions
-                </a>
-<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant dark:text-[#fcdcc9] hover:bg-surface-container-low dark:hover:bg-[#3d1f0d]/50 transition-all font-label-sm text-label-sm" href="#">
-<span class="material-symbols-outlined" data-icon="event">event</span>
-                    Events
-                </a>
-<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant dark:text-[#fcdcc9] hover:bg-surface-container-low dark:hover:bg-[#3d1f0d]/50 transition-all font-label-sm text-label-sm mt-stack-md" href="#">
-<span class="material-symbols-outlined" data-icon="person">person</span>
-                    My Profile
-                </a>
-</nav>
-</aside>
-<!-- Overlay for mobile sidebar -->
-<div class="fixed inset-0 bg-primary/20 dark:bg-black/40 backdrop-blur-sm z-30 hidden md:hidden transition-opacity" id="sidebar-overlay"></div>
-<!-- Main Content -->
-<main class="flex-1 p-margin-safe overflow-y-auto w-full">
-<header class="mb-stack-lg flex justify-between items-end flex-wrap gap-stack-md">
-<div>
-<h1 class="font-headline-lg text-headline-lg md:text-[32px] text-headline-lg-mobile text-on-background dark:text-[#ffede4] mb-2">My Library</h1>
-<p class="font-body-md text-body-md text-on-surface-variant dark:text-[#fcdcc9]">Track your reading progress and upcoming engagements.</p>
-</div>
-<button class="bg-primary-container text-on-primary dark:bg-secondary-fixed dark:text-on-secondary-fixed px-6 py-3 rounded flex items-center gap-2 font-label-sm text-label-sm hover:bg-inverse-surface dark:hover:bg-secondary-fixed-dim transition-colors" onclick="document.getElementById('add-book-modal').classList.remove('hidden')">
-<span class="material-symbols-outlined" data-icon="add">add</span>
-                    Add Book
+
+<main class="pt-[72px] bg-background dark:bg-[#1a0f08] min-h-screen">
+    <!-- Hero -->
+    <section class="py-20 px-margin-safe max-w-[1200px] mx-auto text-center relative">
+        <div class="absolute inset-0 bg-primary-container/10 dark:bg-primary-fixed/5 rounded-[3rem] blur-3xl -z-10"></div>
+        <h1 class="font-display text-display text-on-background dark:text-[#fdfdf9] mb-6 scroll-animate opacity-0 translate-y-8 transition-all duration-700">Our Library</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant dark:text-[#d5c3bb] max-w-2xl mx-auto scroll-animate opacity-0 translate-y-8 transition-all duration-700 delay-100">
+            Explore our curated collection of literature, organized by genre, author, and mood. Discover your next great read.
+        </p>
+    </section>
+
+    <!-- Search & Filters -->
+    <section class="px-margin-safe max-w-[1200px] mx-auto mb-12 scroll-animate opacity-0 translate-y-8 transition-all duration-700 delay-200">
+        <div class="bg-surface-container-lowest dark:bg-[#28180c] rounded-xl p-6 soft-shadow wood-border flex flex-col md:flex-row gap-4 items-center justify-between">
+            <div class="relative w-full md:w-96 flex-shrink-0">
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant dark:text-[#fcdcc9]">search</span>
+                <input type="text" placeholder="Search books, authors, or ISBN..." class="w-full bg-surface-container dark:bg-[#3d1f0d] border border-outline-variant/30 dark:border-outline-variant/10 rounded-full py-3 pl-12 pr-4 font-body-md text-on-background dark:text-[#ffede4] focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-fixed transition-all">
+            </div>
+            <div class="flex gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 items-center">
+                <button class="whitespace-nowrap px-4 py-2 rounded-full bg-primary text-on-primary dark:bg-primary-fixed dark:text-on-primary-fixed font-label-sm text-sm">All Books</button>
+                <button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant/50 dark:border-outline-variant/20 text-on-surface-variant dark:text-[#fcdcc9] hover:bg-surface-container-low dark:hover:bg-[#3d1f0d] font-label-sm text-sm transition-colors">Fiction</button>
+                <button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant/50 dark:border-outline-variant/20 text-on-surface-variant dark:text-[#fcdcc9] hover:bg-surface-container-low dark:hover:bg-[#3d1f0d] font-label-sm text-sm transition-colors">Non-Fiction</button>
+                <button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant/50 dark:border-outline-variant/20 text-on-surface-variant dark:text-[#fcdcc9] hover:bg-surface-container-low dark:hover:bg-[#3d1f0d] font-label-sm text-sm transition-colors">Classics</button>
+                <button class="whitespace-nowrap flex items-center gap-1 px-4 py-2 rounded-full border border-outline-variant/50 dark:border-outline-variant/20 text-on-surface-variant dark:text-[#fcdcc9] hover:bg-surface-container-low dark:hover:bg-[#3d1f0d] font-label-sm text-sm transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">tune</span> Filter
                 </button>
-</header>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
-<!-- Reading Tracker (Bento Main) -->
-<section class="lg:col-span-2 bg-surface-container-lowest dark:bg-[#28180c] rounded-xl p-stack-lg soft-shadow wood-border">
-<h2 class="font-headline-md text-headline-md text-on-background dark:text-[#ffede4] mb-stack-md border-b border-outline-variant/20 dark:border-outline-variant/10 pb-2">Currently Reading</h2>
-<div class="flex flex-col gap-stack-md">
-<!-- Book Item -->
-<div class="flex gap-stack-md items-center p-3 hover:bg-surface-container-low dark:hover:bg-[#3d1f0d] rounded-lg transition-colors group">
-<div class="w-16 h-24 flex-shrink-0 rounded shadow-sm overflow-hidden bg-surface-container-highest dark:bg-[#3f2c1f]">
-<img class="w-full h-full object-cover" data-alt="A beautiful, minimalist book cover featuring subtle geometric gold foil stamping on dark textured leather, representing a classic novel in a premium library setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-fIBPsnuh3TaNu5GUJ0adVuXfA3Yg3prObCLFghKdW_EglXfPPBp4n9IVhA5gEOJ_3cRdhZpacVFnHlBsHJNcUv6d22Aphwgafai0m_xY1TO1AEv_ACGv72yNSjNlLzSmJCq7KiURR628cRjIjCCCe2mmy7AM1tcypajSuqaqnel8GM5YQr5IV6_YGGIYGdwNatPCf1TkFLe1FxG7HANn_ezES3hfnhmyCXI1IdUvNHuAjUkA2s1eAQ"/>
-</div>
-<div class="flex-1">
-<h3 class="font-label-sm text-label-sm text-on-background dark:text-[#ffede4] group-hover:text-secondary dark:group-hover:text-secondary-fixed-dim transition-colors">The Count of Monte Cristo</h3>
-<p class="font-body-md text-body-md text-on-surface-variant dark:text-[#fcdcc9] text-sm mb-2">Alexandre Dumas</p>
-<div class="w-full bg-surface-variant dark:bg-[#3f2c1f] rounded-full h-1.5 mb-1">
-<div class="bg-secondary dark:bg-secondary-fixed h-1.5 rounded-full" style="width: 45%"></div>
-</div>
-<div class="flex justify-between text-xs text-on-surface-variant dark:text-[#fcdcc9]">
-<span>45% Complete</span>
-<span>Page 520 / 1176</span>
-</div>
-</div>
-</div>
-<!-- Book Item -->
-<div class="flex gap-stack-md items-center p-3 hover:bg-surface-container-low dark:hover:bg-[#3d1f0d] rounded-lg transition-colors group">
-<div class="w-16 h-24 flex-shrink-0 rounded shadow-sm overflow-hidden bg-surface-container-highest dark:bg-[#3f2c1f]">
-<img class="w-full h-full object-cover" data-alt="A modern, elegant book cover design with a soft cream background and delicate sepia botanical illustrations, conveying a calm, slow-living aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWwmhpE2wGdxqoZNzG4EpTKU84Pqp3Ksvaem6aiFx-ZTDX-vcybdNKsq7J7KcQujqpCIic_4KGGojTcQW4H2pKh1bprSHEF4BYesSRhiyomsmtAjt9uXN3VSlo2SyYTqxJq-EOim3Qep3dp7bCv1dWQYsWtJlVIDyfzUU6wbmz5Yvoi8ke6eo24aDdM_t_9ufSEGmYQCSBGGum0g3WkcJV2G0jEp_erUk-4jJqiROX5CjxcYzdaUEEGQ"/>
-</div>
-<div class="flex-1">
-<h3 class="font-label-sm text-label-sm text-on-background dark:text-[#ffede4] group-hover:text-secondary dark:group-hover:text-secondary-fixed-dim transition-colors">The Secret History</h3>
-<p class="font-body-md text-body-md text-on-surface-variant dark:text-[#fcdcc9] text-sm mb-2">Donna Tartt</p>
-<div class="w-full bg-surface-variant dark:bg-[#3f2c1f] rounded-full h-1.5 mb-1">
-<div class="bg-tertiary-container dark:bg-tertiary-fixed-dim h-1.5 rounded-full" style="width: 12%"></div>
-</div>
-<div class="flex justify-between text-xs text-on-surface-variant dark:text-[#fcdcc9]">
-<span>12% Complete</span>
-<span>Page 68 / 559</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Sidebar Modules (Bento Side) -->
-<div class="flex flex-col gap-gutter">
-<!-- Discussions -->
-<section class="bg-surface-container-lowest dark:bg-[#28180c] rounded-xl p-stack-md soft-shadow wood-border">
-<h2 class="font-label-sm text-label-sm text-secondary dark:text-secondary-fixed-dim uppercase tracking-wider mb-stack-sm flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px]" data-icon="chat_bubble">chat_bubble</span> Active Discussions
-                        </h2>
-<ul class="flex flex-col gap-3">
-<li class="p-3 rounded bg-surface-container-low dark:bg-[#3d1f0d] hover:bg-surface-container dark:hover:bg-[#3f2c1f] cursor-pointer transition-colors border-l-2 border-secondary-container dark:border-secondary-fixed">
-<p class="font-label-sm text-label-sm text-on-background dark:text-[#ffede4] mb-1">Symbolism in Chapter 4</p>
-<p class="font-body-md text-body-md text-sm text-on-surface-variant dark:text-[#fcdcc9]">The Secret History · 12 replies</p>
-</li>
-<li class="p-3 rounded bg-surface-container-low dark:bg-[#3d1f0d] hover:bg-surface-container dark:hover:bg-[#3f2c1f] cursor-pointer transition-colors border-l-2 border-transparent">
-<p class="font-label-sm text-label-sm text-on-background dark:text-[#ffede4] mb-1">Translation comparisons</p>
-<p class="font-body-md text-body-md text-sm text-on-surface-variant dark:text-[#fcdcc9]">Monte Cristo · 34 replies</p>
-</li>
-</ul>
-</section>
-<!-- Events -->
-<section class="bg-surface-container-lowest dark:bg-[#28180c] rounded-xl p-stack-md soft-shadow wood-border relative overflow-hidden">
-<div class="absolute top-0 right-0 p-4 opacity-5 dark:opacity-10 pointer-events-none text-on-background dark:text-on-primary-fixed">
-<span class="material-symbols-outlined text-6xl" data-icon="calendar_month">calendar_month</span>
-</div>
-<h2 class="font-label-sm text-label-sm text-tertiary-container dark:text-tertiary-fixed-dim uppercase tracking-wider mb-stack-sm flex items-center gap-2 relative z-10">
-<span class="material-symbols-outlined text-[18px]" data-icon="event_available">event_available</span> Upcoming Events
-                        </h2>
-<div class="p-3 rounded bg-surface-container-low dark:bg-[#3d1f0d] border border-outline-variant/20 dark:border-outline-variant/10 relative z-10">
-<div class="flex justify-between items-start mb-2">
-<p class="font-label-sm text-label-sm text-on-background dark:text-[#ffede4]">Monthly Book Club Meetup</p>
-<span class="bg-tertiary-container dark:bg-tertiary-fixed text-on-tertiary dark:text-on-tertiary-fixed text-xs px-2 py-0.5 rounded font-label-sm">RSVP'd</span>
-</div>
-<p class="font-body-md text-body-md text-sm text-on-surface-variant dark:text-[#fcdcc9] flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span> Oct 24, 7:00 PM
-                            </p>
-</div>
-</section>
-</div>
-</div>
-</main>
-</div>
-<!-- Add Book Modal -->
-<div class="fixed inset-0 z-[100] hidden items-center justify-center p-4" id="add-book-modal">
-<div class="absolute inset-0 bg-primary/40 dark:bg-black/60 backdrop-blur-sm" onclick="document.getElementById('add-book-modal').classList.add('hidden')"></div>
-<div class="glass-panel w-full max-w-md rounded-xl p-stack-lg relative z-10 shadow-2xl scale-95 transform transition-transform duration-200">
-<button class="absolute top-4 right-4 text-on-surface-variant dark:text-on-primary-container hover:text-on-background dark:hover:text-[#ffede4]" onclick="document.getElementById('add-book-modal').classList.add('hidden')">
-<span class="material-symbols-outlined" data-icon="close">close</span>
-</button>
-<h2 class="font-headline-md text-headline-md text-on-background dark:text-[#ffede4] mb-6 text-center">Add to Library</h2>
-<form class="flex flex-col gap-stack-md">
-<div>
-<label class="block font-label-sm text-label-sm text-on-surface-variant dark:text-[#fcdcc9] mb-1">Book Title or ISBN</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-on-surface-variant dark:text-[#fcdcc9]">search</span>
-<input class="w-full bg-surface-container-lowest dark:bg-[#3d1f0d] border border-outline-variant/50 dark:border-outline-variant/20 rounded p-2 pl-10 focus:ring-1 focus:ring-secondary dark:focus:ring-secondary-fixed focus:border-secondary dark:focus:border-secondary-fixed font-body-md text-body-md text-on-background dark:text-[#ffede4] dark:placeholder-[#b2846b] outline-none transition-all" placeholder="Search..." type="text"/>
-</div>
-</div>
-<div class="flex gap-2 mt-4">
-<button class="flex-1 py-2 border border-outline-variant dark:border-outline-variant/20 rounded font-label-sm text-label-sm text-on-surface-variant dark:text-[#fcdcc9] hover:bg-surface-container-low dark:hover:bg-[#3d1f0d] transition-colors" onclick="document.getElementById('add-book-modal').classList.add('hidden')" type="button">Cancel</button>
-<button class="flex-1 py-2 bg-primary-container text-on-primary dark:bg-secondary-fixed dark:text-on-secondary-fixed rounded font-label-sm text-label-sm hover:bg-inverse-surface dark:hover:bg-secondary-fixed-dim transition-colors" type="button">Add Manually</button>
-</div>
-</form>
-</div>
-</div>
-<script>
-        // Mobile Sidebar Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const sidebar = document.getElementById('sidebar');
-        const sidebarOverlay = document.getElementById('sidebar-overlay');
+            </div>
+        </div>
+    </section>
 
-        function toggleSidebar() {
-            sidebar.classList.toggle('-translate-x-full');
-            sidebarOverlay.classList.toggle('hidden');
-        }
+    <!-- Book Grid -->
+    <section class="px-margin-safe max-w-[1200px] mx-auto pb-32">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Book Card 1 -->
+            <div class="group scroll-animate opacity-0 translate-y-8 transition-all duration-700 delay-100 flex flex-col h-full bg-surface-container-lowest dark:bg-[#28180c] rounded-xl overflow-hidden soft-shadow wood-border hover:shadow-lg dark:hover:shadow-black/40 hover:-translate-y-1">
+                <div class="aspect-[2/3] relative overflow-hidden bg-surface-container-highest dark:bg-[#3f2c1f]">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-fIBPsnuh3TaNu5GUJ0adVuXfA3Yg3prObCLFghKdW_EglXfPPBp4n9IVhA5gEOJ_3cRdhZpacVFnHlBsHJNcUv6d22Aphwgafai0m_xY1TO1AEv_ACGv72yNSjNlLzSmJCq7KiURR628cRjIjCCCe2mmy7AM1tcypajSuqaqnel8GM5YQr5IV6_YGGIYGdwNatPCf1TkFLe1FxG7HANn_ezES3hfnhmyCXI1IdUvNHuAjUkA2s1eAQ" alt="The Count of Monte Cristo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="Add to Dashboard"><span class="material-symbols-outlined text-[20px]">add</span></button>
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="View Details"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+                    </div>
+                    <span class="absolute top-2 right-2 bg-secondary-container/90 dark:bg-secondary-fixed/90 backdrop-blur text-on-secondary-container dark:text-on-secondary-fixed text-xs font-bold px-2 py-1 rounded font-label-sm">Classic</span>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <div class="flex items-center gap-1 mb-2 text-secondary dark:text-secondary-fixed-dim">
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]">star_half</span>
+                        <span class="text-xs text-on-surface-variant dark:text-[#fcdcc9] ml-1">4.8</span>
+                    </div>
+                    <h3 class="font-headline-md text-[18px] leading-tight font-bold text-on-background dark:text-[#ffede4] mb-1 line-clamp-1 group-hover:text-primary dark:group-hover:text-primary-fixed transition-colors">The Count of Monte Cristo</h3>
+                    <p class="font-body-md text-sm text-on-surface-variant dark:text-[#fcdcc9] mb-4">Alexandre Dumas</p>
+                    <div class="mt-auto flex justify-between items-center">
+                        <span class="font-label-sm text-xs text-on-surface-variant/70 dark:text-[#fcdcc9]/60">1176 pages</span>
+                        <button class="text-primary dark:text-primary-fixed hover:text-secondary dark:hover:text-secondary-fixed-dim text-sm font-label-sm font-bold uppercase tracking-wider transition-colors">Details</button>
+                    </div>
+                </div>
+            </div>
 
-        mobileMenuBtn.addEventListener('click', toggleSidebar);
-        sidebarOverlay.addEventListener('click', toggleSidebar);
+            <!-- Book Card 2 -->
+            <div class="group scroll-animate opacity-0 translate-y-8 transition-all duration-700 delay-200 flex flex-col h-full bg-surface-container-lowest dark:bg-[#28180c] rounded-xl overflow-hidden soft-shadow wood-border hover:shadow-lg dark:hover:shadow-black/40 hover:-translate-y-1">
+                <div class="aspect-[2/3] relative overflow-hidden bg-surface-container-highest dark:bg-[#3f2c1f]">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWwmhpE2wGdxqoZNzG4EpTKU84Pqp3Ksvaem6aiFx-ZTDX-vcybdNKsq7J7KcQujqpCIic_4KGGojTcQW4H2pKh1bprSHEF4BYesSRhiyomsmtAjt9uXN3VSlo2SyYTqxJq-EOim3Qep3dp7bCv1dWQYsWtJlVIDyfzUU6wbmz5Yvoi8ke6eo24aDdM_t_9ufSEGmYQCSBGGum0g3WkcJV2G0jEp_erUk-4jJqiROX5CjxcYzdaUEEGQ" alt="The Secret History" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="Add to Dashboard"><span class="material-symbols-outlined text-[20px]">add</span></button>
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="View Details"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+                    </div>
+                    <span class="absolute top-2 right-2 bg-secondary-container/90 dark:bg-secondary-fixed/90 backdrop-blur text-on-secondary-container dark:text-on-secondary-fixed text-xs font-bold px-2 py-1 rounded font-label-sm">Fiction</span>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <div class="flex items-center gap-1 mb-2 text-secondary dark:text-secondary-fixed-dim">
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]">star</span>
+                        <span class="text-xs text-on-surface-variant dark:text-[#fcdcc9] ml-1">4.2</span>
+                    </div>
+                    <h3 class="font-headline-md text-[18px] leading-tight font-bold text-on-background dark:text-[#ffede4] mb-1 line-clamp-1 group-hover:text-primary dark:group-hover:text-primary-fixed transition-colors">The Secret History</h3>
+                    <p class="font-body-md text-sm text-on-surface-variant dark:text-[#fcdcc9] mb-4">Donna Tartt</p>
+                    <div class="mt-auto flex justify-between items-center">
+                        <span class="font-label-sm text-xs text-on-surface-variant/70 dark:text-[#fcdcc9]/60">559 pages</span>
+                        <button class="text-primary dark:text-primary-fixed hover:text-secondary dark:hover:text-secondary-fixed-dim text-sm font-label-sm font-bold uppercase tracking-wider transition-colors">Details</button>
+                    </div>
+                </div>
+            </div>
 
-        // Theme Toggle with localStorage
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeToggleIcon = document.getElementById('theme-toggle-icon');
-        const html = document.documentElement;
+            <!-- Book Card 3 -->
+            <div class="group scroll-animate opacity-0 translate-y-8 transition-all duration-700 delay-300 flex flex-col h-full bg-surface-container-lowest dark:bg-[#28180c] rounded-xl overflow-hidden soft-shadow wood-border hover:shadow-lg dark:hover:shadow-black/40 hover:-translate-y-1">
+                <div class="aspect-[2/3] relative overflow-hidden bg-surface-container-highest dark:bg-[#3f2c1f] flex items-center justify-center">
+                    <!-- Placeholder cover -->
+                    <div class="w-full h-full bg-surface-variant dark:bg-[#3f2c1f] flex flex-col items-center justify-center p-6 text-center border-l-8 border-primary dark:border-primary-fixed group-hover:scale-105 transition-transform duration-500">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant/50 dark:text-[#ffede4]/30 mb-2">menu_book</span>
+                        <h4 class="font-headline-md text-sm font-bold text-on-surface dark:text-[#ffede4]">Dune</h4>
+                        <p class="font-label-sm text-xs text-on-surface-variant/80 dark:text-[#fcdcc9]/80 mt-1">Frank Herbert</p>
+                    </div>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="Add to Dashboard"><span class="material-symbols-outlined text-[20px]">add</span></button>
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="View Details"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+                    </div>
+                    <span class="absolute top-2 right-2 bg-secondary-container/90 dark:bg-secondary-fixed/90 backdrop-blur text-on-secondary-container dark:text-on-secondary-fixed text-xs font-bold px-2 py-1 rounded font-label-sm">Sci-Fi</span>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <div class="flex items-center gap-1 mb-2 text-secondary dark:text-secondary-fixed-dim">
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="text-xs text-on-surface-variant dark:text-[#fcdcc9] ml-1">4.9</span>
+                    </div>
+                    <h3 class="font-headline-md text-[18px] leading-tight font-bold text-on-background dark:text-[#ffede4] mb-1 line-clamp-1 group-hover:text-primary dark:group-hover:text-primary-fixed transition-colors">Dune</h3>
+                    <p class="font-body-md text-sm text-on-surface-variant dark:text-[#fcdcc9] mb-4">Frank Herbert</p>
+                    <div class="mt-auto flex justify-between items-center">
+                        <span class="font-label-sm text-xs text-on-surface-variant/70 dark:text-[#fcdcc9]/60">896 pages</span>
+                        <button class="text-primary dark:text-primary-fixed hover:text-secondary dark:hover:text-secondary-fixed-dim text-sm font-label-sm font-bold uppercase tracking-wider transition-colors">Details</button>
+                    </div>
+                </div>
+            </div>
 
-        // Set initial icon
-        if (html.classList.contains('dark')) {
-            themeToggleIcon.textContent = 'light_mode';
-        } else {
-            themeToggleIcon.textContent = 'dark_mode';
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            const isDark = html.classList.contains('dark');
-            themeToggleIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+            <!-- Book Card 4 -->
+            <div class="group scroll-animate opacity-0 translate-y-8 transition-all duration-700 delay-400 flex flex-col h-full bg-surface-container-lowest dark:bg-[#28180c] rounded-xl overflow-hidden soft-shadow wood-border hover:shadow-lg dark:hover:shadow-black/40 hover:-translate-y-1">
+                <div class="aspect-[2/3] relative overflow-hidden bg-surface-container-highest dark:bg-[#3f2c1f] flex items-center justify-center">
+                    <div class="w-full h-full bg-surface-variant dark:bg-[#3f2c1f] flex flex-col items-center justify-center p-6 text-center border-l-8 border-tertiary dark:border-tertiary-fixed group-hover:scale-105 transition-transform duration-500">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant/50 dark:text-[#ffede4]/30 mb-2">auto_stories</span>
+                        <h4 class="font-headline-md text-sm font-bold text-on-surface dark:text-[#ffede4]">Pride and Prejudice</h4>
+                        <p class="font-label-sm text-xs text-on-surface-variant/80 dark:text-[#fcdcc9]/80 mt-1">Jane Austen</p>
+                    </div>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="Add to Dashboard"><span class="material-symbols-outlined text-[20px]">add</span></button>
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="View Details"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+                    </div>
+                    <span class="absolute top-2 right-2 bg-secondary-container/90 dark:bg-secondary-fixed/90 backdrop-blur text-on-secondary-container dark:text-on-secondary-fixed text-xs font-bold px-2 py-1 rounded font-label-sm">Romance</span>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <div class="flex items-center gap-1 mb-2 text-secondary dark:text-secondary-fixed-dim">
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+                        <span class="text-xs text-on-surface-variant dark:text-[#fcdcc9] ml-1">4.6</span>
+                    </div>
+                    <h3 class="font-headline-md text-[18px] leading-tight font-bold text-on-background dark:text-[#ffede4] mb-1 line-clamp-1 group-hover:text-primary dark:group-hover:text-primary-fixed transition-colors">Pride and Prejudice</h3>
+                    <p class="font-body-md text-sm text-on-surface-variant dark:text-[#fcdcc9] mb-4">Jane Austen</p>
+                    <div class="mt-auto flex justify-between items-center">
+                        <span class="font-label-sm text-xs text-on-surface-variant/70 dark:text-[#fcdcc9]/60">432 pages</span>
+                        <button class="text-primary dark:text-primary-fixed hover:text-secondary dark:hover:text-secondary-fixed-dim text-sm font-label-sm font-bold uppercase tracking-wider transition-colors">Details</button>
+                    </div>
+                </div>
+            </div>
             
-            // Persist preference
-            if (isDark) {
-                localStorage.setItem('color-theme', 'dark');
-            } else {
-                localStorage.setItem('color-theme', 'light');
-            }
-        });
+            <!-- Book Card 5 -->
+            <div class="group scroll-animate opacity-0 translate-y-8 transition-all duration-700 delay-100 flex flex-col h-full bg-surface-container-lowest dark:bg-[#28180c] rounded-xl overflow-hidden soft-shadow wood-border hover:shadow-lg dark:hover:shadow-black/40 hover:-translate-y-1">
+                <div class="aspect-[2/3] relative overflow-hidden bg-surface-container-highest dark:bg-[#3f2c1f] flex items-center justify-center">
+                    <div class="w-full h-full bg-surface-variant dark:bg-[#3f2c1f] flex flex-col items-center justify-center p-6 text-center border-l-8 border-error-container dark:border-error group-hover:scale-105 transition-transform duration-500">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant/50 dark:text-[#ffede4]/30 mb-2">local_library</span>
+                        <h4 class="font-headline-md text-sm font-bold text-on-surface dark:text-[#ffede4]">Sapiens</h4>
+                        <p class="font-label-sm text-xs text-on-surface-variant/80 dark:text-[#fcdcc9]/80 mt-1">Yuval Noah Harari</p>
+                    </div>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="Add to Dashboard"><span class="material-symbols-outlined text-[20px]">add</span></button>
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="View Details"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+                    </div>
+                    <span class="absolute top-2 right-2 bg-secondary-container/90 dark:bg-secondary-fixed/90 backdrop-blur text-on-secondary-container dark:text-on-secondary-fixed text-xs font-bold px-2 py-1 rounded font-label-sm">Non-Fiction</span>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <div class="flex items-center gap-1 mb-2 text-secondary dark:text-secondary-fixed-dim">
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="text-xs text-on-surface-variant dark:text-[#fcdcc9] ml-1">4.8</span>
+                    </div>
+                    <h3 class="font-headline-md text-[18px] leading-tight font-bold text-on-background dark:text-[#ffede4] mb-1 line-clamp-1 group-hover:text-primary dark:group-hover:text-primary-fixed transition-colors">Sapiens</h3>
+                    <p class="font-body-md text-sm text-on-surface-variant dark:text-[#fcdcc9] mb-4">Yuval Noah Harari</p>
+                    <div class="mt-auto flex justify-between items-center">
+                        <span class="font-label-sm text-xs text-on-surface-variant/70 dark:text-[#fcdcc9]/60">443 pages</span>
+                        <button class="text-primary dark:text-primary-fixed hover:text-secondary dark:hover:text-secondary-fixed-dim text-sm font-label-sm font-bold uppercase tracking-wider transition-colors">Details</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Book Card 6 -->
+            <div class="group scroll-animate opacity-0 translate-y-8 transition-all duration-700 delay-200 flex flex-col h-full bg-surface-container-lowest dark:bg-[#28180c] rounded-xl overflow-hidden soft-shadow wood-border hover:shadow-lg dark:hover:shadow-black/40 hover:-translate-y-1">
+                <div class="aspect-[2/3] relative overflow-hidden bg-surface-container-highest dark:bg-[#3f2c1f] flex items-center justify-center">
+                    <div class="w-full h-full bg-surface-variant dark:bg-[#3f2c1f] flex flex-col items-center justify-center p-6 text-center border-l-8 border-surface-tint dark:border-primary-fixed group-hover:scale-105 transition-transform duration-500">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant/50 dark:text-[#ffede4]/30 mb-2">history_edu</span>
+                        <h4 class="font-headline-md text-sm font-bold text-on-surface dark:text-[#ffede4]">1984</h4>
+                        <p class="font-label-sm text-xs text-on-surface-variant/80 dark:text-[#fcdcc9]/80 mt-1">George Orwell</p>
+                    </div>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="Add to Dashboard"><span class="material-symbols-outlined text-[20px]">add</span></button>
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="View Details"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+                    </div>
+                    <span class="absolute top-2 right-2 bg-secondary-container/90 dark:bg-secondary-fixed/90 backdrop-blur text-on-secondary-container dark:text-on-secondary-fixed text-xs font-bold px-2 py-1 rounded font-label-sm">Dystopian</span>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <div class="flex items-center gap-1 mb-2 text-secondary dark:text-secondary-fixed-dim">
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]">star_half</span>
+                        <span class="text-xs text-on-surface-variant dark:text-[#fcdcc9] ml-1">4.3</span>
+                    </div>
+                    <h3 class="font-headline-md text-[18px] leading-tight font-bold text-on-background dark:text-[#ffede4] mb-1 line-clamp-1 group-hover:text-primary dark:group-hover:text-primary-fixed transition-colors">1984</h3>
+                    <p class="font-body-md text-sm text-on-surface-variant dark:text-[#fcdcc9] mb-4">George Orwell</p>
+                    <div class="mt-auto flex justify-between items-center">
+                        <span class="font-label-sm text-xs text-on-surface-variant/70 dark:text-[#fcdcc9]/60">328 pages</span>
+                        <button class="text-primary dark:text-primary-fixed hover:text-secondary dark:hover:text-secondary-fixed-dim text-sm font-label-sm font-bold uppercase tracking-wider transition-colors">Details</button>
+                    </div>
+                </div>
+            </div>
 
-        // Show modal by default if hash is #add
-        if(window.location.hash === '#add') {
-            document.getElementById('add-book-modal').classList.remove('hidden');
-            document.getElementById('add-book-modal').classList.add('flex');
-        } else {
-             // ensure flex is applied when unhiding
-             const observer = new MutationObserver((mutations) => {
-                mutations.forEach((mutation) => {
-                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                        const modal = document.getElementById('add-book-modal');
-                        if (!modal.classList.contains('hidden')) {
-                            modal.classList.add('flex');
-                        } else {
-                             modal.classList.remove('flex');
-                        }
-                    }
-                });
+            <!-- Book Card 7 -->
+            <div class="group scroll-animate opacity-0 translate-y-8 transition-all duration-700 delay-300 flex flex-col h-full bg-surface-container-lowest dark:bg-[#28180c] rounded-xl overflow-hidden soft-shadow wood-border hover:shadow-lg dark:hover:shadow-black/40 hover:-translate-y-1">
+                <div class="aspect-[2/3] relative overflow-hidden bg-surface-container-highest dark:bg-[#3f2c1f] flex items-center justify-center">
+                    <div class="w-full h-full bg-surface-variant dark:bg-[#3f2c1f] flex flex-col items-center justify-center p-6 text-center border-l-8 border-secondary-container dark:border-secondary-fixed group-hover:scale-105 transition-transform duration-500">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant/50 dark:text-[#ffede4]/30 mb-2">public</span>
+                        <h4 class="font-headline-md text-sm font-bold text-on-surface dark:text-[#ffede4]">Thinking, Fast and Slow</h4>
+                        <p class="font-label-sm text-xs text-on-surface-variant/80 dark:text-[#fcdcc9]/80 mt-1">Daniel Kahneman</p>
+                    </div>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="Add to Dashboard"><span class="material-symbols-outlined text-[20px]">add</span></button>
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="View Details"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+                    </div>
+                    <span class="absolute top-2 right-2 bg-secondary-container/90 dark:bg-secondary-fixed/90 backdrop-blur text-on-secondary-container dark:text-on-secondary-fixed text-xs font-bold px-2 py-1 rounded font-label-sm">Psychology</span>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <div class="flex items-center gap-1 mb-2 text-secondary dark:text-secondary-fixed-dim">
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+                        <span class="text-xs text-on-surface-variant dark:text-[#fcdcc9] ml-1">4.5</span>
+                    </div>
+                    <h3 class="font-headline-md text-[18px] leading-tight font-bold text-on-background dark:text-[#ffede4] mb-1 line-clamp-1 group-hover:text-primary dark:group-hover:text-primary-fixed transition-colors">Thinking, Fast and Slow</h3>
+                    <p class="font-body-md text-sm text-on-surface-variant dark:text-[#fcdcc9] mb-4">Daniel Kahneman</p>
+                    <div class="mt-auto flex justify-between items-center">
+                        <span class="font-label-sm text-xs text-on-surface-variant/70 dark:text-[#fcdcc9]/60">499 pages</span>
+                        <button class="text-primary dark:text-primary-fixed hover:text-secondary dark:hover:text-secondary-fixed-dim text-sm font-label-sm font-bold uppercase tracking-wider transition-colors">Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Card 8 -->
+            <div class="group scroll-animate opacity-0 translate-y-8 transition-all duration-700 delay-400 flex flex-col h-full bg-surface-container-lowest dark:bg-[#28180c] rounded-xl overflow-hidden soft-shadow wood-border hover:shadow-lg dark:hover:shadow-black/40 hover:-translate-y-1">
+                <div class="aspect-[2/3] relative overflow-hidden bg-surface-container-highest dark:bg-[#3f2c1f] flex items-center justify-center">
+                    <div class="w-full h-full bg-surface-variant dark:bg-[#3f2c1f] flex flex-col items-center justify-center p-6 text-center border-l-8 border-on-tertiary-fixed-variant dark:border-tertiary-fixed-dim group-hover:scale-105 transition-transform duration-500">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant/50 dark:text-[#ffede4]/30 mb-2">import_contacts</span>
+                        <h4 class="font-headline-md text-sm font-bold text-on-surface dark:text-[#ffede4]">To Kill a Mockingbird</h4>
+                        <p class="font-label-sm text-xs text-on-surface-variant/80 dark:text-[#fcdcc9]/80 mt-1">Harper Lee</p>
+                    </div>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="Add to Dashboard"><span class="material-symbols-outlined text-[20px]">add</span></button>
+                        <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="View Details"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+                    </div>
+                    <span class="absolute top-2 right-2 bg-secondary-container/90 dark:bg-secondary-fixed/90 backdrop-blur text-on-secondary-container dark:text-on-secondary-fixed text-xs font-bold px-2 py-1 rounded font-label-sm">Classic</span>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                    <div class="flex items-center gap-1 mb-2 text-secondary dark:text-secondary-fixed-dim">
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="text-xs text-on-surface-variant dark:text-[#fcdcc9] ml-1">4.9</span>
+                    </div>
+                    <h3 class="font-headline-md text-[18px] leading-tight font-bold text-on-background dark:text-[#ffede4] mb-1 line-clamp-1 group-hover:text-primary dark:group-hover:text-primary-fixed transition-colors">To Kill a Mockingbird</h3>
+                    <p class="font-body-md text-sm text-on-surface-variant dark:text-[#fcdcc9] mb-4">Harper Lee</p>
+                    <div class="mt-auto flex justify-between items-center">
+                        <span class="font-label-sm text-xs text-on-surface-variant/70 dark:text-[#fcdcc9]/60">281 pages</span>
+                        <button class="text-primary dark:text-primary-fixed hover:text-secondary dark:hover:text-secondary-fixed-dim text-sm font-label-sm font-bold uppercase tracking-wider transition-colors">Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-16 flex justify-center items-center gap-2">
+            <button class="w-10 h-10 rounded bg-surface-container dark:bg-[#3d1f0d] flex items-center justify-center text-on-surface-variant dark:text-[#fcdcc9] hover:bg-primary hover:text-on-primary dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-colors disabled:opacity-50" disabled>
+                <span class="material-symbols-outlined text-sm">chevron_left</span>
+            </button>
+            <button class="w-10 h-10 rounded bg-primary text-on-primary dark:bg-primary-fixed dark:text-on-primary-fixed font-label-sm font-bold flex items-center justify-center shadow-sm">1</button>
+            <button class="w-10 h-10 rounded bg-surface-container-lowest dark:bg-[#28180c] hover:bg-surface-container dark:hover:bg-[#3f2c1f] flex items-center justify-center text-on-surface-variant dark:text-[#ffede4] font-label-sm transition-colors border border-outline-variant/30 dark:border-white/10">2</button>
+            <button class="w-10 h-10 rounded bg-surface-container-lowest dark:bg-[#28180c] hover:bg-surface-container dark:hover:bg-[#3f2c1f] flex items-center justify-center text-on-surface-variant dark:text-[#ffede4] font-label-sm transition-colors border border-outline-variant/30 dark:border-white/10">3</button>
+            <span class="text-on-surface-variant dark:text-[#fcdcc9] px-2">...</span>
+            <button class="w-10 h-10 rounded bg-surface-container-lowest dark:bg-[#28180c] hover:bg-surface-container dark:hover:bg-[#3f2c1f] flex items-center justify-center text-on-surface-variant dark:text-[#ffede4] font-label-sm transition-colors border border-outline-variant/30 dark:border-white/10">8</button>
+            <button class="w-10 h-10 rounded bg-surface-container dark:bg-[#3d1f0d] flex items-center justify-center text-on-surface-variant dark:text-[#fcdcc9] hover:bg-primary hover:text-on-primary dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-colors">
+                <span class="material-symbols-outlined text-sm">chevron_right</span>
+            </button>
+        </div>
+    </section>
+</main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Scroll Animation Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                    observer.unobserve(entry.target);
+                }
             });
-            observer.observe(document.getElementById('add-book-modal'), { attributes: true });
-        }
-    </script>
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach((el) => {
+            observer.observe(el);
+        });
+    });
+</script>
+
 <footer class="bg-surface-container-high dark:bg-[#0c0502] w-full pt-20 pb-10 mt-section-gap border-t border-outline-variant/20 dark:border-white/10 relative overflow-hidden">
     <!-- Decorative background elements -->
     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container dark:via-primary-fixed to-transparent opacity-50"></div>
@@ -516,8 +640,8 @@
         const nav = document.querySelector('nav');
         if (!nav) return;
         
-        const hamburgerBtn = nav.querySelector('button.lg\:hidden') || nav.querySelector('.lg\:hidden');
-        const desktopMenu = nav.querySelector('.hidden.lg\:flex.space-x-gutter');
+        const hamburgerBtn = nav.querySelector('button.lg\\\\:hidden') || nav.querySelector('.lg\:hidden');
+        const desktopMenu = nav.querySelector('.hidden.lg\\\\:flex.space-x-gutter');
         
         if (hamburgerBtn && desktopMenu && !document.getElementById('mobile-menu-container')) {
             // Create mobile menu container
