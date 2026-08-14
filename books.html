@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
@@ -640,8 +640,8 @@
         const nav = document.querySelector('nav');
         if (!nav) return;
         
-        const hamburgerBtn = nav.querySelector('button.lg\\\\:hidden') || nav.querySelector('.lg\:hidden');
-        const desktopMenu = nav.querySelector('.hidden.lg\\\\:flex.space-x-gutter');
+        const hamburgerBtn = nav.querySelector('[data-icon="menu"]')?.closest('button') || Array.from(nav.querySelectorAll('button')).find(b => b.classList.contains('lg:hidden') || b.querySelector('[data-icon="menu"]'));
+        const desktopMenu = nav.querySelector('.hidden') || Array.from(nav.querySelectorAll('div')).find(el => el.classList.contains('lg:flex') && el.classList.contains('hidden'));
         
         if (hamburgerBtn && desktopMenu && !document.getElementById('mobile-menu-container')) {
             // Create mobile menu container
