@@ -138,7 +138,7 @@
 <header class="fixed top-0 w-full h-[72px] z-50 bg-background/80 dark:bg-dark-bg/80 backdrop-blur-md border-b border-outline-variant/10 shadow-sm dark:shadow-none transition-colors duration-300">
 <div class="flex justify-between items-center h-full px-margin-safe max-w-[1200px] mx-auto">
 <!-- Brand -->
-<a class="font-headline-md text-headline-md font-bold text-on-background dark:text-primary-fixed" href="index.html">Book Haven</a>
+<a class="flex items-center gap-2 hover:scale-105 transition-transform duration-300" href="index.html"><span class="material-symbols-outlined text-2xl text-primary-container dark:text-primary-fixed">menu_book</span><span class="font-display text-[22px] font-bold tracking-tight text-on-background dark:text-primary-fixed" style="font-family:'Playfair Display',serif">Book Haven</span></a>
 <div class="hidden lg:flex space-x-gutter">
 <a class="text-on-surface-variant dark:text-surface-variant transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all" href="index.html">Home</a>
 <a class="text-secondary dark:text-secondary-fixed-dim transition-colors duration-200 font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all font-bold border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1" href="home2.html">Home 2</a>
@@ -154,8 +154,8 @@
 <span class="material-symbols-outlined hidden dark:block">light_mode</span>
 </button>
 <button class="hidden lg:block text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors font-label-sm font-bold" id="rtl-toggle" title="Toggle RTL">RTL</button>
-<button onclick="window.location.href=\'login.html\'" class="hidden lg:block text-secondary dark:text-secondary-fixed-dim font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all">Login</button>
-<button onclick="window.location.href=\'register.html\'" class="hidden lg:block bg-primary-container dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed px-4 py-2 rounded font-label-sm text-label-sm hover:bg-secondary-container dark:hover:bg-secondary-fixed transition-all">Join Club</button>
+<a href="login.html" class="hidden lg:block text-secondary dark:text-secondary-fixed-dim font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all">Login</a>
+<a href="register.html" class="hidden lg:block bg-primary-container dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed px-4 py-2 rounded font-label-sm text-label-sm hover:bg-secondary-container dark:hover:bg-secondary-fixed transition-all">Join Club</a>
 <button class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors lg:hidden">
 <span class="material-symbols-outlined" data-icon="menu">menu</span>
 </button>
@@ -164,8 +164,8 @@
 </nav>
 <!-- Actions -->
 <div class="flex items-center gap-stack-md">
-<button onclick="window.location.href=\'login.html\'" class="hidden lg:block font-label-sm text-label-sm text-on-surface-variant dark:text-dark-text/80 hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors hover:scale-95 duration-150 ease-in-out">Login</button>
-<button onclick="window.location.href=\'register.html\'" class="hidden lg:block bg-primary-container dark:bg-surface-tint text-on-primary px-4 py-2 rounded font-label-sm text-label-sm hover:bg-surface-tint dark:hover:bg-primary-container transition-colors hover:scale-95 duration-150 ease-in-out">Join Club</button>
+<a href="login.html" class="hidden lg:block text-secondary dark:text-secondary-fixed-dim font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all">Login</a>
+<a href="register.html" class="hidden lg:block bg-primary-container dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed px-4 py-2 rounded font-label-sm text-label-sm hover:bg-secondary-container dark:hover:bg-secondary-fixed transition-all">Join Club</a>
 <!-- Icon Actions -->
 <button class="text-on-surface-variant dark:text-dark-text hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors hover:scale-95 duration-150 ease-in-out" onclick="toggleTheme()">
 <span class="material-symbols-outlined dark:hidden">dark_mode</span>
@@ -365,7 +365,7 @@
         <div class="col-span-1 md:col-span-5 flex flex-col items-start">
             <a href="index.html" class="flex items-center gap-3 mb-6 hover:scale-105 transition-transform duration-300">
                 <span class="material-symbols-outlined text-3xl text-primary dark:text-primary-fixed">menu_book</span>
-                <span class="font-display text-headline-sm font-bold text-on-surface dark:text-white tracking-tight">Book Haven</span>
+                <span class="font-bold tracking-tight text-on-surface dark:text-white text-[22px]" style="font-family:'Playfair Display',serif">Book Haven</span>
             </a>
             <p class="font-body-lg text-on-surface-variant dark:text-surface-variant/90 mb-8 max-w-md leading-relaxed">
                 Elevating the art of slow reading. Join a community of literature lovers dedicated to meaningful discussions, curated selections, and shared intellectual growth.
