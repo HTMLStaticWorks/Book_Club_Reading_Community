@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html><html class="light" lang="en"><head>
+<!DOCTYPE html><html class="light" lang="en"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>About Book Haven</title>
@@ -369,34 +369,6 @@
     </div>
 </footer>
 <script>
-    // Theme Toggle Logic
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const htmlElement = document.documentElement;
-
-    function updateThemeIcon() {
-        if (htmlElement.classList.contains('dark')) {
-            themeIcon.textContent = 'light_mode';
-        } else {
-            themeIcon.textContent = 'dark_mode';
-        }
-    }
-
-    // Set initial icon
-    updateThemeIcon();
-
-    themeToggleBtn.addEventListener('click', () => {
-        htmlElement.classList.toggle('dark');
-        htmlElement.classList.toggle('light');
-        
-        if (htmlElement.classList.contains('dark')) {
-            localStorage.setItem('theme', 'dark');
-        } else {
-            localStorage.setItem('theme', 'light');
-        }
-        updateThemeIcon();
-    });
-
     // Scroll Reveal Animation
     function reveal() {
         var reveals = document.querySelectorAll(".reveal");
