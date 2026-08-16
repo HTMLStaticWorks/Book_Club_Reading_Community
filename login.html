@@ -22,15 +22,15 @@
         .delay-100 { animation-delay: 100ms; }
         .delay-200 { animation-delay: 200ms; }
         .glass-card {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             transition: all 0.3s ease;
         }
         .dark .glass-card {
-            background: rgba(26, 15, 8, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(26, 15, 8, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
         .glass-input {
@@ -56,25 +56,20 @@
         .toggle-container {
             position: relative;
             width: 100%;
-            height: 100%;
             perspective: 1000px;
         }
         .flipper {
+            display: grid;
             width: 100%;
-            height: 100%;
             transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
             transform-style: preserve-3d;
-            position: relative;
         }
         .flipper.flipped {
             transform: rotateY(180deg);
         }
         .front, .back {
+            grid-area: 1 / 1;
             width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
         }
@@ -113,36 +108,6 @@
             background: rgba(26, 15, 8, 0.6);
         }
 
-        /* Back to Home link */
-        .back-home {
-            position: absolute;
-            top: 24px;
-            left: 24px;
-            z-index: 50;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 999px;
-            padding: 8px 16px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #3d1f0d;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-family: 'Literata', serif;
-        }
-        .dark .back-home {
-            background: rgba(26, 15, 8, 0.4);
-            border-color: rgba(255, 255, 255, 0.1);
-            color: #efbba0;
-        }
-        .back-home:hover {
-            transform: translateX(-3px);
-            background: rgba(255, 255, 255, 0.35);
-        }
     </style>
 <script id="tailwind-config">
         tailwind.config = {
@@ -238,25 +203,31 @@
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body class="bg-background dark:bg-[#1a0f08] text-on-background dark:text-[#ffede4] min-h-screen flex items-center justify-center relative transition-colors duration-500">
+<div class="fixed top-6 left-6 z-50">
+    <a class="flex items-center gap-2 hover:scale-105 transition-transform duration-300" href="index.html">
+        <span class="material-symbols-outlined text-2xl text-primary-container dark:text-primary-fixed">menu_book</span>
+        <span class="font-display text-[22px] font-bold tracking-tight text-on-background dark:text-primary-fixed" style="font-family:'Playfair Display',serif">Book Haven</span>
+    </a>
+</div>
+
 
 <!-- Blurred Background Image -->
 <div class="fixed inset-0 bg-cover bg-center filter blur-md scale-105 z-0 transition-opacity duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDUa6z_ze23MU5CRaFasu0CseDdc-Gr4HS4sfFLD51Mcm9W-fw5ZH5ktzeRUy4XKLL5lZs6sL76Z26_gciFVzzpGdQWXl16m31wdfA89T741Db79uuMhD7TaNPOm5NOiWYzbVqPOn5YObkkNBJRmOz6PyB-4nDaSRlNmcv9rdRaO8ABifDxj30gqu6AUBTSfaBmeJel5wFK1IXQBfPpNckAbgaQ7BZZjg5Y8wo6ZpDv-SiMZZidhbw5Pg')"></div>
 <div class="fixed inset-0 bg-primary/20 dark:bg-black/60 mix-blend-multiply z-0 transition-colors duration-500"></div>
 
-<!-- Back to Home -->
-<a href="index.html" class="back-home">
-    <span class="material-symbols-outlined" style="font-size:18px">arrow_back</span>
-    Book Haven
-</a>
 
-<!-- Theme Toggle -->
-<button aria-label="Toggle Dark Mode" class="theme-toggle-btn" id="theme-toggle-btn">
-    <span class="material-symbols-outlined dark:hidden" data-icon="dark_mode">dark_mode</span>
-    <span class="material-symbols-outlined hidden dark:block" data-icon="light_mode">light_mode</span>
-</button>
 
-<main class="relative z-10 w-full max-w-[480px] px-margin-safe py-20 min-h-[650px]">
-<div class="toggle-container fade-in">
+<!-- Toggles Container -->
+<div class="top-right-container">
+    <button class="theme-btn" id="rtl-toggle-btn" aria-label="Toggle RTL">RTL</button>
+    <button class="theme-btn" id="theme-toggle-btn" aria-label="Toggle Dark Mode">
+        <span class="material-symbols-outlined dark:hidden" data-icon="dark_mode">dark_mode</span>
+        <span class="material-symbols-outlined hidden dark:block" data-icon="light_mode">light_mode</span>
+    </button>
+</div>
+
+<main class="relative z-10 w-full max-w-[480px] px-margin-safe py-20 min-h-[650px] flex flex-col">
+<div class="toggle-container fade-in flex-1">
 <div class="flipper" id="cardFlipper">
 <!-- Front: Login -->
 <div class="front">

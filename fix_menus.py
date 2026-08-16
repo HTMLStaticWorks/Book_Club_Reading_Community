@@ -27,7 +27,7 @@ for file in files:
     )
 
     # Build the correct menu block for this file
-    menu_html = '<div class="hidden lg:flex space-x-gutter">\n'
+    menu_html = '<div class="hidden lg:flex gap-gutter">\n'
     for href, text in pages:
         cls = active_class if file == href else inactive_class
         menu_html += f'<a class="{cls}" href="{href}">{text}</a>\n'
@@ -35,7 +35,7 @@ for file in files:
 
     # Replace the menu block
     content = re.sub(
-        r'<div class="hidden lg:flex space-x-gutter">.*?</div>',
+        r'<div class="hidden lg:flex gap-gutter">.*?</div>',
         menu_html,
         content, flags=re.DOTALL
     )
