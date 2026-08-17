@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
@@ -214,7 +214,6 @@
 </button>
 <button class="hidden xl:flex w-10 h-10 items-center justify-center rounded-full text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors font-label-sm font-bold hover:bg-surface-container-high dark:hover:bg-dark-surface" id="rtl-toggle" title="Toggle RTL">RTL</button>
 <a href="login.html" class="hidden xl:block bg-primary-container dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed px-4 py-2 rounded font-label-sm text-label-sm hover:bg-secondary-container dark:hover:bg-secondary-fixed transition-all shadow-sm">Login</a>
-<a href="register.html" class="hidden xl:block bg-primary-container dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed px-4 py-2 rounded font-label-sm text-label-sm hover:bg-secondary-container dark:hover:bg-secondary-fixed transition-all shadow-sm">Join Club</a>
 <button class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors xl:hidden">
 <span class="material-symbols-outlined" data-icon="menu">menu</span>
 </button>
@@ -223,10 +222,31 @@
 </nav>
 <div class="flex-1 flex pt-[72px] max-w-[1200px] mx-auto w-full">
 <!-- Sidebar -->
+<aside class="fixed md:static inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out w-64 bg-surface-container-lowest dark:bg-[#28180c] md:bg-transparent md:dark:bg-transparent z-40 pt-24 md:pt-margin-safe px-margin-safe border-r border-outline-variant/20 dark:border-outline-variant/10 md:border-transparent md:block flex flex-col gap-stack-md h-full md:h-auto overflow-y-auto" id="sidebar">
+<nav class="flex flex-col gap-stack-sm">
+<a class="flex items-center gap-3 p-3 rounded-lg bg-surface-container dark:bg-[#3d1f0d] text-secondary dark:text-secondary-fixed-dim font-label-sm text-label-sm transition-all shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="book" style="font-variation-settings: 'FILL' 1;">book</span>
+                    My Books
+                </a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant dark:text-[#fcdcc9] hover:bg-surface-container-low dark:hover:bg-[#3d1f0d]/50 transition-all font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+                    Discussions
+                </a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant dark:text-[#fcdcc9] hover:bg-surface-container-low dark:hover:bg-[#3d1f0d]/50 transition-all font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+                    Events
+                </a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant dark:text-[#fcdcc9] hover:bg-surface-container-low dark:hover:bg-[#3d1f0d]/50 transition-all font-label-sm text-label-sm mt-stack-md" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+                    My Profile
+                </a>
+</nav>
+</aside>
+<div class="fixed inset-0 bg-primary/20 dark:bg-black/40 backdrop-blur-sm z-30 hidden md:hidden transition-opacity" id="sidebar-overlay"></div>
 <main class="flex-1 p-margin-safe overflow-y-auto w-full">
 <header class="mb-stack-lg flex justify-between items-end flex-wrap gap-stack-md">
 
-<div class="w-full md:hidden mb-4 flex justify-end">
+<div class="w-full md:hidden mb-4 flex justify-start">
     <button id="mobile-menu-btn" class="flex items-center gap-2 bg-surface-container-low dark:bg-[#3d1f0d] text-on-surface-variant dark:text-[#fcdcc9] px-4 py-2 rounded-lg font-label-sm shadow-sm border border-outline-variant/20 hover:bg-surface-container transition-colors">
         <span class="material-symbols-outlined text-[18px]">menu_open</span>
         Dashboard Menu
@@ -301,7 +321,7 @@
 </ul>
 </section>
 <!-- Events -->
-<section class="pb-0 bg-surface-container-lowest dark:bg-[#28180c] rounded-xl p-stack-md soft-shadow wood-border relative overflow-hidden">
+<section class="pb-section-gap-mobile md:pb-section-gap bg-surface-container-lowest dark:bg-[#28180c] rounded-xl p-stack-md soft-shadow wood-border relative overflow-hidden">
 <div class="absolute top-0 right-0 p-4 opacity-5 dark:opacity-10 pointer-events-none text-on-background dark:text-on-primary-fixed">
 <span class="material-symbols-outlined text-6xl" data-icon="calendar_month">calendar_month</span>
 </div>
@@ -321,27 +341,6 @@
 </div>
 </div>
 </main>
-<aside class="fixed md:static inset-y-0 right-0 transform translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out w-64 bg-surface-container-lowest dark:bg-[#28180c] md:bg-transparent md:dark:bg-transparent z-40 pt-24 md:pt-margin-safe px-margin-safe border-l border-outline-variant/20 dark:border-outline-variant/10 md:border-transparent md:block flex flex-col gap-stack-md h-full md:h-auto overflow-y-auto" id="sidebar">
-<nav class="flex flex-col gap-stack-sm">
-<a class="flex items-center gap-3 p-3 rounded-lg bg-surface-container dark:bg-[#3d1f0d] text-secondary dark:text-secondary-fixed-dim font-label-sm text-label-sm transition-all shadow-sm" href="#">
-<span class="material-symbols-outlined" data-icon="book" style="font-variation-settings: 'FILL' 1;">book</span>
-                    My Books
-                </a>
-<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant dark:text-[#fcdcc9] hover:bg-surface-container-low dark:hover:bg-[#3d1f0d]/50 transition-all font-label-sm text-label-sm" href="#">
-<span class="material-symbols-outlined" data-icon="forum">forum</span>
-                    Discussions
-                </a>
-<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant dark:text-[#fcdcc9] hover:bg-surface-container-low dark:hover:bg-[#3d1f0d]/50 transition-all font-label-sm text-label-sm" href="#">
-<span class="material-symbols-outlined" data-icon="event">event</span>
-                    Events
-                </a>
-<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant dark:text-[#fcdcc9] hover:bg-surface-container-low dark:hover:bg-[#3d1f0d]/50 transition-all font-label-sm text-label-sm mt-stack-md" href="#">
-<span class="material-symbols-outlined" data-icon="person">person</span>
-                    My Profile
-                </a>
-</nav>
-</aside>
-<div class="fixed inset-0 bg-primary/20 dark:bg-black/40 backdrop-blur-sm z-30 hidden md:hidden transition-opacity" id="sidebar-overlay"></div>
 </div>
 <!-- Add Book Modal -->
 <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4" id="add-book-modal">
@@ -373,7 +372,7 @@
         const sidebarOverlay = document.getElementById('sidebar-overlay');
 
         function toggleSidebar() {
-            sidebar.classList.toggle('translate-x-full');
+            sidebar.classList.toggle('-translate-x-full');
             sidebarOverlay.classList.toggle('hidden');
         }
 
@@ -430,7 +429,7 @@
             observer.observe(document.getElementById('add-book-modal'), { attributes: true });
         }
     </script>
-<footer class="bg-surface-container-high dark:bg-[#0c0502] w-full pt-20 pb-10 border-t border-outline-variant/20 dark:border-white/10 relative overflow-hidden">
+<footer class="bg-surface-container-high dark:bg-[#0c0502] w-full pt-24 pb-16 border-t border-outline-variant/20 dark:border-white/10 relative overflow-hidden">
     <!-- Decorative background elements -->
     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container dark:via-primary-fixed to-transparent opacity-50"></div>
     <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-primary-container/10 dark:bg-primary-fixed/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -494,7 +493,7 @@
     </div>
 
     <!-- Copyright -->
-    <div class="mt-16 pt-6 border-t border-outline-variant/20 dark:border-white/10 text-center relative z-10 px-margin-safe max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="pt-6 border-t border-outline-variant/20 dark:border-white/10 text-center relative z-10 px-margin-safe max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="font-body-sm text-label-md text-on-surface-variant dark:text-surface-variant/60">
             &copy; 2026 Book Haven. All rights reserved.
         </p>
