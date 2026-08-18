@@ -115,15 +115,17 @@
         right: 24px;
         z-index: 50;
         display: flex;
-        gap: 16px;
+        align-items: center;
+        gap: 12px;
     }
     .theme-btn {
-        background: rgba(255, 255, 255, 0.25);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
         border-radius: 50%;
-        width: 48px;
-        height: 48px;
+        width: 44px;
+        height: 44px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -131,24 +133,26 @@
         transition: all 0.3s ease;
         color: #3d1f0d;
         font-family: 'Literata', serif;
-        font-weight: 600;
-        font-size: 14px;
+        font-weight: 700;
+        font-size: 13px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
     .dark .theme-btn {
-        background: rgba(26, 15, 8, 0.5);
-        border-color: rgba(255, 255, 255, 0.1);
+        background: rgba(26, 15, 8, 0.6);
+        border-color: rgba(255, 255, 255, 0.15);
         color: #efbba0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
-    .theme-btn:hover { transform: scale(1.05); }
+    .theme-btn:hover {
+        transform: scale(1.08);
+        background: rgba(255, 255, 255, 0.6);
+    }
+    .dark .theme-btn:hover {
+        background: rgba(26, 15, 8, 0.85);
+    }
 </style>
 </head>
 <body class="bg-background text-on-background antialiased font-body-md transition-colors duration-300 dark:bg-[#1a0f08] dark:text-[#fdfdf9] min-h-screen">
-<div class="fixed top-6 left-6 z-50">
-    <a class="flex items-center gap-2 hover:scale-105 transition-transform duration-300" href="index.html">
-        <span class="material-symbols-outlined text-2xl text-primary-container dark:text-primary-fixed">menu_book</span>
-        <span class="font-display text-[22px] font-bold tracking-tight text-on-background dark:text-primary-fixed" style="font-family:'Playfair Display',serif">Book Haven</span>
-    </a>
-</div>
 
 
 
@@ -175,7 +179,11 @@
 <!-- Glassmorphic Card -->
 <div class="bg-surface-container-lowest/85 dark:bg-[#1a0f08]/85 backdrop-blur-[20px] border border-surface-container-lowest/50 dark:border-[#ffffff]/15 rounded-xl p-8 sm:p-10 shadow-[0_8px_32px_rgba(61,31,13,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
 <div class="text-center mb-8">
-<h1 class="font-display text-display text-on-background dark:text-[#fdfdf9] mb-2">Join the Club</h1>
+<a class="inline-flex flex-col items-center group hover:opacity-90 transition-opacity mb-3" href="index.html">
+<span class="material-symbols-outlined text-[44px] text-primary-container dark:text-primary-fixed mb-1 transition-transform group-hover:scale-105 duration-300">menu_book</span>
+<span class="font-display text-2xl font-bold tracking-tight text-primary-container dark:text-primary-fixed" style="font-family:'Playfair Display',serif">Book Haven</span>
+</a>
+<h1 class="font-display text-2xl font-bold text-on-background dark:text-[#fdfdf9] mb-1">Join the Club</h1>
 <p class="font-body-md text-body-md text-on-surface-variant dark:text-[#d5c3bb]">Begin your literary journey.</p>
 </div>
 <form class="space-y-6">
@@ -205,7 +213,7 @@
 <input class="w-full bg-surface-container-lowest/50 dark:bg-[#ffffff]/5 border border-outline-variant dark:border-outline-variant/30 rounded-DEFAULT px-4 py-3 font-body-md text-on-background dark:text-[#fdfdf9] focus:outline-none focus:border-secondary-container focus:ring-1 focus:ring-secondary-container/50 transition-all placeholder:text-on-surface-variant/50 dark:placeholder:text-[#d5c3bb]/50" id="confirmPassword" placeholder="••••••••" type="password"/>
 </div>
 <!-- Submit Button -->
-<button class="w-full flex items-center justify-center gap-2 bg-primary-container dark:bg-secondary-fixed-dim text-on-primary dark:text-[#2c1700] py-4 rounded-DEFAULT font-label-sm text-label-sm hover:opacity-90 hover:-translate-y-0.5 transition-all duration-200 mt-8 shadow-sm" type="submit">
+<button class="w-full flex items-center justify-center gap-2 bg-primary-container dark:bg-secondary-fixed-dim text-on-primary dark:text-[#2c1700] py-4 rounded-DEFAULT font-label-sm text-label-sm hover:opacity-90 hover:-translate-y-0.5 transition-all duration-200 mt-8 shadow-sm" type="button" onclick="window.location.href='dashboard.html'">
 <span>Create Account</span>
 <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
 </button>
@@ -220,32 +228,46 @@
 </main>
 
 <script>
-    
     const rtlBtn = document.getElementById('rtl-toggle-btn');
     if(rtlBtn) {
         rtlBtn.addEventListener('click', function() {
             if (document.documentElement.getAttribute('dir') === 'rtl') {
                 document.documentElement.setAttribute('dir', 'ltr');
+                localStorage.setItem('dir', 'ltr');
             } else {
                 document.documentElement.setAttribute('dir', 'rtl');
+                localStorage.setItem('dir', 'rtl');
             }
         });
     }
 
     const themeBtn = document.getElementById('theme-toggle-btn');
-    themeBtn.addEventListener('click', function() {
-        if (document.documentElement.classList.contains('dark')) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
+    if(themeBtn) {
+        themeBtn.addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    }
 
     // Apply saved theme on load
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+    } else if (localStorage.theme === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+    }
+
+    // Apply saved RTL on load
+    if (localStorage.dir === 'rtl') {
+        document.documentElement.setAttribute('dir', 'rtl');
     }
 </script>
 

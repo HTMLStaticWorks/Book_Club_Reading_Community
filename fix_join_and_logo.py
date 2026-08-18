@@ -10,18 +10,8 @@ def fix_all():
     </a>
 </div>
 """
-    # 1. Add Logo to login.html and register.html
-    for f in ['login.html', 'register.html']:
-        if not os.path.exists(f): continue
-        with open(f, 'r', encoding='utf-8') as file:
-            content = file.read()
-        
-        if 'Book Haven' not in content or '<div class="fixed top-6 left-6 z-50">' not in content:
-            # insert after body
-            content = re.sub(r'(<body[^>]*>)', r'\1' + logo_html, content)
-            with open(f, 'w', encoding='utf-8') as file:
-                file.write(content)
-            print(f"Added logo to {f}")
+    # 1. Logo is embedded inside the card box on login.html and register.html
+
 
     # 2. Fix 'Join Club' buttons in all files
     for f in os.listdir('.'):
