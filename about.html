@@ -137,7 +137,7 @@
 </head>
 <body class="bg-background dark:bg-[#1a0f08] text-on-background dark:text-[#f4e6d3] min-h-screen flex flex-col transition-colors duration-300">
 <!-- TopNavBar -->
-<header class="fixed top-0 w-full h-[72px] z-50 bg-background/80 dark:bg-[#1a0f08]/90 backdrop-blur-md border-b border-outline-variant/10 dark:border-outline-variant/5 shadow-sm dark:shadow-none transition-all">
+<nav class="fixed top-0 w-full h-[72px] z-50 bg-background/80 dark:bg-[#1a0f08]/90 backdrop-blur-md border-b border-outline-variant/10 dark:border-outline-variant/5 shadow-sm dark:shadow-none transition-all">
 <div class="flex justify-between items-center h-full px-margin-safe max-w-[1200px] mx-auto">
 <a class="flex items-center gap-2 hover:scale-105 transition-transform duration-300" href="index.html"><span class="material-symbols-outlined text-2xl text-primary-container dark:text-primary-fixed">menu_book</span><span class="font-display text-[22px] font-bold tracking-tight text-on-background dark:text-primary-fixed" style="font-family:'Playfair Display',serif">Book Haven</span></a>
 <div class="hidden xl:flex gap-gutter">
@@ -161,7 +161,7 @@
 </button>
 </div>
 </div>
-</header>
+</nav>
 <main class="flex-grow pt-[72px]">
 <!-- Hero Section -->
 <section class="max-w-[1200px] mx-auto px-margin-safe py-section-gap-mobile md:py-section-gap text-center reveal">
@@ -439,7 +439,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Mobile Menu Logic
-        const nav = document.querySelector('nav');
+        const nav = document.querySelector('nav') || document.querySelector('header');
         if (!nav) return;
         
         const hamburgerBtn = nav.querySelector('[data-icon="menu"]')?.closest('button') || Array.from(nav.querySelectorAll('button')).find(b => b.classList.contains('xl:hidden') || b.querySelector('[data-icon="menu"]'));
@@ -449,16 +449,35 @@
             // Create mobile menu container
             const mobileMenu = document.createElement('div');
             mobileMenu.id = 'mobile-menu-container';
-            mobileMenu.className = 'hidden xl:hidden bg-background dark:bg-[#1a0f08] absolute top-[72px] left-0 w-full border-b border-outline-variant/10 dark:border-outline-variant/5 shadow-lg flex-col px-8 py-6 space-y-4';
+            mobileMenu.className = 'hidden xl:hidden bg-background dark:bg-[#1a0f08] fixed top-[72px] left-0 w-full max-h-[calc(100vh-72px)] overflow-y-auto border-b border-outline-variant/10 dark:border-outline-variant/5 shadow-2xl flex-col px-8 py-6 space-y-4 z-50';
             
             // Clone links
             const links = desktopMenu.cloneNode(true);
             links.className = 'flex flex-col space-y-6';
             
-            // Fix text size for mobile
+            function openMobileMenu() {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+                const icon = hamburgerBtn.querySelector('span');
+                if(icon) icon.textContent = 'close';
+            }
+
+            function closeMobileMenu() {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                document.body.style.overflow = '';
+                const icon = hamburgerBtn.querySelector('span');
+                if(icon) icon.textContent = 'menu';
+            }
+
+            // Fix text size for mobile & add close click listener
             const anchorTags = links.querySelectorAll('a');
             anchorTags.forEach(a => {
                 a.classList.add('text-base');
+                a.addEventListener('click', function() {
+                    closeMobileMenu();
+                });
             });
             
             // Toggles Container
@@ -499,6 +518,9 @@
             loginBtn.href = 'login.html';
             loginBtn.className = 'bg-primary-container dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed px-4 py-3 rounded font-label-sm font-bold text-center block w-full mt-4 text-base shadow-sm hover:bg-secondary-container dark:hover:bg-secondary-fixed transition-all';
             loginBtn.innerText = 'Login';
+            loginBtn.addEventListener('click', function() {
+                closeMobileMenu();
+            });
             
             mobileMenu.appendChild(links);
             mobileMenu.appendChild(togglesContainer);
@@ -509,16 +531,10 @@
             // Toggle Logic
             hamburgerBtn.addEventListener('click', function() {
                 const isHidden = mobileMenu.classList.contains('hidden');
-                const icon = hamburgerBtn.querySelector('span');
-                
                 if (isHidden) {
-                    mobileMenu.classList.remove('hidden');
-                    mobileMenu.classList.add('flex');
-                    if(icon) icon.textContent = 'close';
+                    openMobileMenu();
                 } else {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex');
-                    if(icon) icon.textContent = 'menu';
+                    closeMobileMenu();
                 }
             });
         }

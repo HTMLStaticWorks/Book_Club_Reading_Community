@@ -110,7 +110,7 @@
     }
     /* Theme & RTL toggle */
     .top-right-container {
-        position: fixed;
+        position: absolute;
         top: 24px;
         right: 24px;
         z-index: 50;
@@ -183,7 +183,7 @@
 <span class="material-symbols-outlined text-[44px] text-primary-container dark:text-primary-fixed mb-1 transition-transform group-hover:scale-105 duration-300">menu_book</span>
 <span class="font-display text-2xl font-bold tracking-tight text-primary-container dark:text-primary-fixed" style="font-family:'Playfair Display',serif">Book Haven</span>
 </a>
-<h1 class="font-display text-2xl font-bold text-on-background dark:text-[#fdfdf9] mb-1">Join the Club</h1>
+<h1 class="font-display text-2xl font-bold tracking-tight text-on-background dark:text-[#fdfdf9] mb-1" style="font-family:'Playfair Display',serif">Join the Club</h1>
 <p class="font-body-md text-body-md text-on-surface-variant dark:text-[#d5c3bb]">Begin your literary journey.</p>
 </div>
 <form class="space-y-6">
@@ -213,9 +213,8 @@
 <input class="w-full bg-surface-container-lowest/50 dark:bg-[#ffffff]/5 border border-outline-variant dark:border-outline-variant/30 rounded-DEFAULT px-4 py-3 font-body-md text-on-background dark:text-[#fdfdf9] focus:outline-none focus:border-secondary-container focus:ring-1 focus:ring-secondary-container/50 transition-all placeholder:text-on-surface-variant/50 dark:placeholder:text-[#d5c3bb]/50" id="confirmPassword" placeholder="••••••••" type="password"/>
 </div>
 <!-- Submit Button -->
-<button class="w-full flex items-center justify-center gap-2 bg-primary-container dark:bg-secondary-fixed-dim text-on-primary dark:text-[#2c1700] py-4 rounded-DEFAULT font-label-sm text-label-sm hover:opacity-90 hover:-translate-y-0.5 transition-all duration-200 mt-8 shadow-sm" type="button" onclick="window.location.href='dashboard.html'">
+<button class="w-full flex items-center justify-center bg-primary-container dark:bg-secondary-fixed-dim text-on-primary dark:text-[#2c1700] py-4 rounded-DEFAULT font-label-sm text-label-sm hover:opacity-90 hover:-translate-y-0.5 transition-all duration-200 mt-8 shadow-sm" type="button" onclick="window.location.href='dashboard.html'">
 <span>Create Account</span>
-<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
 </button>
 </form>
 <div class="mt-6 text-center">

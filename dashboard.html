@@ -184,7 +184,7 @@
         }
         /* Top Right Floating Container for Theme & RTL Toggles */
         .top-right-container {
-            position: fixed;
+            position: absolute;
             top: 20px;
             right: 24px;
             z-index: 50;
@@ -249,9 +249,9 @@
     </button>
 </div>
 
-<div class="flex-1 flex max-w-[1200px] mx-auto w-full py-6">
+<div class="flex-1 flex w-full py-6 px-4 md:px-8 gap-6 md:gap-8">
 <!-- Sidebar -->
-<aside class="fixed md:static inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out w-64 bg-surface-container-lowest dark:bg-[#28180c] md:bg-transparent md:dark:bg-transparent z-40 p-margin-safe border-r border-outline-variant/20 dark:border-outline-variant/10 md:border-transparent md:flex flex-col justify-between h-full md:h-auto overflow-y-auto" id="sidebar">
+<aside class="fixed lg:static inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out w-64 bg-surface-container-lowest dark:bg-[#28180c] lg:bg-transparent lg:dark:bg-transparent z-50 p-6 lg:p-0 border-r border-outline-variant/20 dark:border-outline-variant/10 lg:border-transparent flex flex-col justify-between h-full lg:h-auto overflow-y-auto flex-shrink-0 shadow-2xl lg:shadow-none" id="sidebar">
 <div>
 <a class="flex items-center gap-2 mb-6 hover:scale-105 transition-transform duration-300" href="index.html">
     <span class="material-symbols-outlined text-2xl text-primary-container dark:text-primary-fixed">menu_book</span>
@@ -283,14 +283,14 @@
 </a>
 </div>
 </aside>
-<div class="fixed inset-0 bg-primary/20 dark:bg-black/40 backdrop-blur-sm z-30 hidden md:hidden transition-opacity" id="sidebar-overlay"></div>
-<main class="flex-1 p-margin-safe overflow-y-auto w-full">
+<div class="fixed inset-0 bg-primary/30 dark:bg-black/60 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity" id="sidebar-overlay"></div>
+<main class="flex-1 overflow-y-auto w-full">
 <header class="mb-stack-lg flex justify-between items-end flex-wrap gap-stack-md">
 
-<div class="w-full md:hidden mb-4 flex justify-start">
-    <button id="mobile-menu-btn" class="flex items-center gap-2 bg-surface-container-low dark:bg-[#3d1f0d] text-on-surface-variant dark:text-[#fcdcc9] px-4 py-2 rounded-lg font-label-sm shadow-sm border border-outline-variant/20 hover:bg-surface-container transition-colors">
-        <span class="material-symbols-outlined text-[18px]">menu_open</span>
-        Dashboard Menu
+<div class="w-full lg:hidden mb-4 flex justify-start">
+    <button id="mobile-menu-btn" class="flex items-center gap-2 bg-surface-container-low dark:bg-[#3d1f0d] text-on-surface-variant dark:text-[#fcdcc9] px-4 py-2.5 rounded-lg font-label-sm shadow-sm border border-outline-variant/20 hover:bg-surface-container transition-colors cursor-pointer">
+        <span class="material-symbols-outlined text-[20px]">menu</span>
+        <span class="font-bold">Dashboard Menu</span>
     </button>
 </div>
 <div>
@@ -445,12 +445,12 @@
 
 <!-- TAB 3: EVENTS -->
 <div class="tab-pane hidden" id="tab-events">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
 <div class="bg-surface-container-lowest dark:bg-[#28180c] rounded-xl p-stack-lg soft-shadow wood-border flex flex-col justify-between">
 <div>
-<div class="flex justify-between items-start mb-3">
-<span class="bg-tertiary-container dark:bg-tertiary-fixed text-on-tertiary dark:text-on-tertiary-fixed text-xs px-3 py-1 rounded-full font-bold">Monthly Club</span>
-<span class="text-xs text-on-surface-variant dark:text-[#fcdcc9]">Oct 24, 2026</span>
+<div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+<span class="bg-tertiary-container dark:bg-tertiary-fixed text-on-tertiary dark:text-on-tertiary-fixed text-xs px-3 py-1 rounded-full font-bold shrink-0">Monthly Club</span>
+<span class="text-xs font-semibold text-on-surface-variant dark:text-[#fcdcc9] whitespace-nowrap shrink-0">Oct 24, 2026</span>
 </div>
 <h3 class="font-headline-md text-headline-md text-on-background dark:text-[#ffede4] mb-2">Monthly Book Club Discussion</h3>
 <p class="text-sm text-on-surface-variant dark:text-[#fcdcc9] mb-4">In-depth roundtable discussion on classic revenge narratives and character arcs in European literature.</p>
@@ -463,9 +463,9 @@
 
 <div class="bg-surface-container-lowest dark:bg-[#28180c] rounded-xl p-stack-lg soft-shadow wood-border flex flex-col justify-between">
 <div>
-<div class="flex justify-between items-start mb-3">
-<span class="bg-secondary-container dark:bg-secondary-fixed text-on-secondary-fixed dark:text-secondary text-xs px-3 py-1 rounded-full font-bold">Live Workshop</span>
-<span class="text-xs text-on-surface-variant dark:text-[#fcdcc9]">Nov 05, 2026</span>
+<div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+<span class="bg-secondary-container dark:bg-secondary-fixed text-on-secondary-fixed dark:text-secondary text-xs px-3 py-1 rounded-full font-bold shrink-0">Live Workshop</span>
+<span class="text-xs font-semibold text-on-surface-variant dark:text-[#fcdcc9] whitespace-nowrap shrink-0">Nov 05, 2026</span>
 </div>
 <h3 class="font-headline-md text-headline-md text-on-background dark:text-[#ffede4] mb-2">Masterclass: Writing Atmospheric Fiction</h3>
 <p class="text-sm text-on-surface-variant dark:text-[#fcdcc9] mb-4">Interactive evening workshop with guest authors exploring sensory world-building and pace.</p>
@@ -473,7 +473,7 @@
 <span class="material-symbols-outlined text-sm">videocam</span> Live Virtual Workshop (Zoom)
 </div>
 </div>
-<button class="w-full bg-secondary-container dark:bg-secondary-fixed text-on-secondary-fixed dark:text-secondary py-2.5 rounded font-label-sm text-sm hover:opacity-95 transition-all">RSVP Now</button>
+<button class="w-full bg-secondary-container dark:bg-secondary-fixed text-on-secondary-fixed dark:text-secondary py-2.5 rounded font-label-sm text-sm hover:brightness-105 transition-all shadow-sm">RSVP Now</button>
 </div>
 </div>
 </div>
@@ -609,7 +609,7 @@
                 // Close mobile sidebar on selection
                 const sidebar = document.getElementById('sidebar');
                 const sidebarOverlay = document.getElementById('sidebar-overlay');
-                if (sidebar && !sidebar.classList.contains('-translate-x-full') && window.innerWidth < 768) {
+                if (sidebar && !sidebar.classList.contains('-translate-x-full') && window.innerWidth < 1024) {
                     sidebar.classList.add('-translate-x-full');
                     if (sidebarOverlay) sidebarOverlay.classList.add('hidden');
                 }
