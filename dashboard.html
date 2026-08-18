@@ -192,6 +192,11 @@
             align-items: center;
             gap: 12px;
         }
+        html[dir="rtl"] .top-right-container,
+        [dir="rtl"] .top-right-container {
+            right: auto;
+            left: 24px;
+        }
         .theme-btn {
             background: rgba(255, 255, 255, 0.55);
             backdrop-filter: blur(12px);
@@ -251,9 +256,9 @@
 
 <div class="flex-1 flex w-full py-6 px-4 md:px-8 gap-6 md:gap-8">
 <!-- Sidebar -->
-<aside class="fixed lg:static inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out w-64 bg-surface-container-lowest dark:bg-[#28180c] lg:bg-transparent lg:dark:bg-transparent z-50 p-6 lg:p-0 border-r border-outline-variant/20 dark:border-outline-variant/10 lg:border-transparent flex flex-col justify-between h-full lg:h-auto overflow-y-auto flex-shrink-0 shadow-2xl lg:shadow-none" id="sidebar">
+<aside class="fixed lg:static inset-y-0 left-0 rtl:left-auto rtl:right-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out w-64 bg-surface-container-lowest dark:bg-[#28180c] lg:bg-transparent lg:dark:bg-transparent z-50 p-6 lg:p-0 border-r rtl:border-r-0 rtl:border-l border-outline-variant/20 dark:border-outline-variant/10 lg:border-transparent flex flex-col justify-between h-full lg:h-auto overflow-y-auto flex-shrink-0 shadow-2xl lg:shadow-none" id="sidebar">
 <div>
-<a class="flex items-center gap-2 mb-6 hover:scale-105 transition-transform duration-300" href="index.html">
+<a class="flex items-center gap-2 mb-6 origin-left rtl:origin-right hover:scale-105 transition-transform duration-300" href="index.html">
     <span class="material-symbols-outlined text-2xl text-primary-container dark:text-primary-fixed">menu_book</span>
     <span class="font-display text-[22px] font-bold tracking-tight text-on-background dark:text-primary-fixed" style="font-family:'Playfair Display',serif">Book Haven</span>
 </a>
@@ -285,7 +290,7 @@
 </aside>
 <div class="fixed inset-0 bg-primary/30 dark:bg-black/60 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity" id="sidebar-overlay"></div>
 <main class="flex-1 overflow-y-auto w-full">
-<header class="mb-stack-lg flex justify-between items-end flex-wrap gap-stack-md">
+<header class="mb-stack-lg flex justify-between items-end flex-wrap gap-stack-md pt-2 md:pt-0 pr-28 lg:pr-32 rtl:pr-0 rtl:pl-28 lg:rtl:pl-32">
 
 <div class="w-full lg:hidden mb-4 flex justify-start">
     <button id="mobile-menu-btn" class="flex items-center gap-2 bg-surface-container-low dark:bg-[#3d1f0d] text-on-surface-variant dark:text-[#fcdcc9] px-4 py-2.5 rounded-lg font-label-sm shadow-sm border border-outline-variant/20 hover:bg-surface-container transition-colors cursor-pointer">
